@@ -1,4 +1,4 @@
-package com.xxblog.services;
+package com.xxbase.services;
 
 
 import java.io.Serializable;

@@ -49,7 +49,7 @@
     </bean>
 
     <import resource="classpath:spring-db.xml"></import>
-    <!--<import resource="classpath:spring-shiro.xml"></import>-->
+    <import resource="classpath:spring-shiro.xml"></import>
     <!--<import resource="classpath:spring-activiti.xml"></import>-->
 
 </beans>

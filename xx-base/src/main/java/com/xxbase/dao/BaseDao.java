@@ -1,6 +1,7 @@
-package com.xxblog.dao;
+package com.xxbase.dao;
 
-import com.xxblog.exception.ServiceException;
+
+import com.xxbase.exception.ServiceException;
 
 import java.io.Serializable;
 import java.util.List;

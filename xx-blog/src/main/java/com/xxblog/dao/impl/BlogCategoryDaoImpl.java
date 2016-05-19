@@ -1,5 +1,6 @@
 package com.xxblog.dao.impl;
 
+import com.xxbase.dao.impl.BaseDaoImpl;
 import com.xxblog.dao.BlogCategoryDao;
 import com.xxblog.entity.BlogCategoryEntity;
 import org.springframework.stereotype.Repository;

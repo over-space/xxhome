@@ -1,9 +1,9 @@
-package com.xxblog.dao.impl;
+package com.xxbase.dao.impl;
 
 import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.path.PathBuilder;
-import com.xxblog.dao.BaseDao;
-import com.xxblog.exception.ServiceException;
+import com.xxbase.dao.BaseDao;
+import com.xxbase.exception.ServiceException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

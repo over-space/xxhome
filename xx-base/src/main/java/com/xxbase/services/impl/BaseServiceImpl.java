@@ -1,7 +1,7 @@
-package com.xxblog.services.impl;
+package com.xxbase.services.impl;
 
-import com.xxblog.dao.BaseDao;
-import com.xxblog.services.BaseService;
+import com.xxbase.dao.BaseDao;
+import com.xxbase.services.BaseService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;

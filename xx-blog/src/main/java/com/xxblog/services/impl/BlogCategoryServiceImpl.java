@@ -1,6 +1,7 @@
 package com.xxblog.services.impl;
 
-import com.xxblog.dao.BaseDao;
+import com.xxbase.dao.BaseDao;
+import com.xxbase.services.impl.BaseServiceImpl;
 import com.xxblog.dao.BlogCategoryDao;
 import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogCategoryService;
