@@ -7,8 +7,8 @@
 
     <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${path}/resources/xxblog/front/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="${path}/resources/xxblog/css/style.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/front/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
     <title>Accord - Free Bootstrap Template</title>
 </head>
 
@@ -25,7 +25,7 @@
                                 <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">                                    
                                     <a href="index.ftl" class="block-keep-ratio__content  main-menu-link">
                                         <span class="main-menu-link-text">
-                                            HOME <p>${xxblog_path}</p>
+                                            HOME
                                         </span>                                        
                                     </a>
                                 </div>                                
@@ -64,13 +64,13 @@
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner" role="listbox">
                                             <div class="item active">
-                                                <img src="images/slider-img-1.png" alt="slider">
+                                                <img src="${xxblog_path}/images/slider-img-1.png" alt="slider">
                                                 <div class="carousel-caption menu-caption">
                                                     mauris vita
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <img src="images/menu-bg-home.png" alt="slider">
+                                                <img src="${xxblog_path}/images/menu-bg-home.png" alt="slider">
                                                 <div class="carousel-caption menu-caption">
                                                     lorem ipsum
                                                 </div>
@@ -108,7 +108,7 @@
                                             <button type="button" class="">SAGITIS SELIT</button>
                                         </div>
                                     </div>
-                                    <img src="images/home-img-1.png" alt="Image" class="img-responsive">
+                                    <img src="${xxblog_path}/images/home-img-1.png" alt="Image" class="img-responsive">
                                 </div>                        
                             </div>    
                         </div>
@@ -116,7 +116,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="box london">
                                     <div class="box-icon">
-                                        <img src="images/home-img-2.jpg" alt="Image" class="img-responsive">
+                                        <img src="${xxblog_path}/images/home-img-2.jpg" alt="Image" class="img-responsive">
                                     </div>
                                     <div class="info float-container">
                                         <div class="col-sm-12 london-title">
@@ -141,7 +141,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <div class="box paris">
                                     <div class="box-icon">
-                                        <img src="images/home-img-3.jpg" alt="Image" class="img-responsive">
+                                        <img src="${xxblog_path}/images/home-img-3.jpg" alt="Image" class="img-responsive">
                                     </div>
                                     <div class="info float-container">
                                         <div class="col-sm-12 london-title paris-title">
@@ -206,17 +206,15 @@
             </div> <!-- .row -->           
             <footer class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                    <p class="copyright">Copyright © 2016 Company Name 
-                    
-                    | More Templates <a href="http://www.17sucai.com/" target="_blank" title="17素材网">17素材网</a> - Collect from <a href="http://www.17sucai.com/" title="网页模板" target="_blank">网页模板</a></p>
+                    <p class="copyright">Copyright © 2016 Company Name</p>
                 </div>    
             </footer>  <!-- .row -->      
         </div> <!-- .container -->
     </div> <!-- .main-body -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.11.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
+    <script src="${xxblog_path}/js/bootstrap.min.js"></script>
 
 </body>
 </html>
