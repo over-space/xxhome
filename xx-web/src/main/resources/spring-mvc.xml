@@ -62,9 +62,9 @@
                 <entry key="systemDescription" value="${system.description}" />
                 <entry key="systemShowPowered" value="${system.show_powered}" />
                 <entry key="path" value="#{servletContext.contextPath}" />
-                <entry key="xxbase_path" value="#{servletContext.contextPath}" />
+                <entry key="xxbase_path" value="#{servletContext.contextPath}/resources/xx-base" />
                 <entry key="xxblog_path" value="#{servletContext.contextPath}/resources/xx-blog" />
-                <entry key="xxplus_path" value="#{servletContext.contextPath}" />
+                <entry key="xxplus_path" value="#{servletContext.contextPath}/resources/xx-plus" />
                 <entry key="locale" value="${system.locale}" />
                 <!--&lt;!&ndash; 解析XML配置文件 &ndash;&gt;-->
                 <!--<entry key="setting" value="#{T(com.aplus.utils.SettingUtils).get()}" />-->

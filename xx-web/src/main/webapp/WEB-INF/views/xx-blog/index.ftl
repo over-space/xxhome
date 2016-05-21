@@ -7,13 +7,15 @@
 
     <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${xxblog_path}/front/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/font/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
-    <title>Accord - Free Bootstrap Template</title>
+    <link rel="shortcut icon" href="${xxbase_path}/icon/favicon.ico" />
+
+    <title>XX博客首页</title>
 </head>
 
 <body>
-    <div class="main-body">	
+    <div class="main-body" ng-app="mainViewApp" ng-controller="mainViewController">
         <div class="container">
             <div class="row">               
                 <div class="main-page">
@@ -23,7 +25,7 @@
 
                             <div class="menu-container">
                                 <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">                                    
-                                    <a href="index.ftl" class="block-keep-ratio__content  main-menu-link">
+                                    <a href="index.xhtml" class="block-keep-ratio__content  main-menu-link">
                                         <span class="main-menu-link-text">
                                             HOME
                                         </span>                                        
@@ -32,15 +34,15 @@
                             </div>
 
                             <div class="menu-container">                                
-                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main">                                    
-                                    <a href="about.ftl" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                                <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main" ng-click="doAccountManager()">
+                                    <a href="about.xhtml" class="main-menu-link about block-keep-ratio__content flexbox-center">
                                         <i class="fa fa-user fa-4x main-menu-link-icon"></i>
-                                        ABOUT
+                                        登录
                                     </a>                                    
                                 </div>
 
                                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                                    <a href="contact.ftl" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                                    <a href="contact.xhtml" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                                         <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
                                         CONTACT
                                     </a>                                
@@ -49,7 +51,7 @@
 
                             <div class="menu-container">
                                 <div class="block-keep-ratio block-keep-ratio-1-1 block-keep-ratio-md-2-1 block-width-full gallery">                                    
-                                    <a href="gallery.ftl" class="main-menu-link  block-keep-ratio__content">
+                                    <a href="gallery.xhtml" class="main-menu-link  block-keep-ratio__content">
                                         <span class="main-menu-link-text">
                                             GALLERY    
                                         </span>                                            
@@ -174,19 +176,19 @@
                                         <div class="row">
                                             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                 <div class="bottom-img">
-                                                    <img src="images/home-img-4.jpg" alt="Image">
+                                                    <img src="${xxblog_path}/images/home-img-4.jpg" alt="Image">
                                                     <p class="first">Sollicitudin nibh</p>    
                                                 </div>                                      
                                             </div>
                                             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                 <div class="bottom-img">
-                                                    <img src="images/home-img-5.jpg" alt="Image">
+                                                    <img src="${xxblog_path}/images/home-img-5.jpg" alt="Image">
                                                     <p class="second">duis sedio amiet</p>    
                                                 </div>                                      
                                             </div>
                                             <div class="col-xxs-12 col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                                 <div class="bottom-img">
-                                                    <img src="images/home-img-6.jpg" alt="Image">
+                                                    <img src="${xxblog_path}/images/home-img-6.jpg" alt="Image">
                                                     <p class="third">Nec sagittis seim</p>    
                                                 </div>                                      
                                             </div>
@@ -215,6 +217,8 @@
     <!-- JavaScript -->
     <script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
     <script src="${xxblog_path}/js/bootstrap.min.js"></script>
-
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script type="application/javascript" src="${xxblog_path}/js/mainViewController.js"></script>
+    <script type="application/javascript" src="${xxblog_path}/js/layui/layui.js"></script>
 </body>
 </html>

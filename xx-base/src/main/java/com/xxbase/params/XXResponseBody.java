@@ -1,51 +1,77 @@
 package com.xxbase.params;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * Created by admin on 16/05/19.
  */
-public class XXResponseBody<T>{
+public class XXResponseBody<T> {
 
-    private static final int CODE_RIGHT = 0;
+    public static final int CODE_RIGHT = 0;
 
-    private int code = Integer.valueOf(CODE_RIGHT);
 
-    private String message;
+    private XXResponseBody(){}
 
-    private T result;
 
-    public XXResponseBody() {
+    public static String success(){
+        return JSON.toJSONString(new Body());
     }
 
-    public XXResponseBody(int code, String message) {
-        this.code = code;
-        this.message = message;
+    public static String success(Object data){
+        return JSON.toJSONString(new Body(data));
     }
 
-    public XXResponseBody(T result){
-        this.result = result;
+    public static String failure(int code, String message){
+        return JSON.toJSONString(new Body<>(code, message));
     }
 
-    public int getCode() {
-        return code;
+   static class Body<T>{
+
+        private int code = CODE_RIGHT;
+        private String message;
+        private T data;
+
+       public Body() {
+       }
+
+       public Body(T t) {
+           this.data = t;
+       }
+
+        public Body(int code, String message) {
+            this.code = code;
+            this.message = message;
+        }
+
+        public Body(int code, String message, T data) {
+            this.code = code;
+            this.message = message;
+            this.data = data;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getResult() {
-        return result;
-    }
-
-    public void setResult(T result) {
-        this.result = result;
-    }
 }

@@ -80,13 +80,22 @@
     </init-param>
   </filter>
 
+  <filter>
+    <filter-name>xxResponseFilter</filter-name>
+    <filter-class>com.xxbase.filter.XXResponseFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>xxResponseFilter</filter-name>
+    <url-pattern>*.xhtml</url-pattern>
+  </filter-mapping>
+
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
   <servlet>
-    <servlet-name>springmvc</servlet-name>
+    <servlet-name>spring-mvc</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
@@ -96,8 +105,8 @@
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>springmvc</servlet-name>
-    <url-pattern>*.html</url-pattern>
+    <servlet-name>spring-mvc</servlet-name>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
 
   <filter>

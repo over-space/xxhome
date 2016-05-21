@@ -23,4 +23,10 @@ public class BlogCategoryServiceImplTest extends SpringBaseTest{
         blogCategoryService.persist(blogCategoryEntity);
     }
 
+    @Test
+    public void testFindById(){
+        blogCategoryService.findById(1L);
+        blogCategoryService.findById(1L);
+    }
+
 }
