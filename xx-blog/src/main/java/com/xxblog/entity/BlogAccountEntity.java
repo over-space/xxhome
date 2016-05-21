@@ -27,6 +27,13 @@ public class BlogAccountEntity extends BaseEntity{
     @Column(length = 64)
     public String avatar;//头像
 
+    public BlogAccountEntity(String name, String password, String email, String avatar) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.avatar = avatar;
+    }
+
     public String getName() {
         return name;
     }

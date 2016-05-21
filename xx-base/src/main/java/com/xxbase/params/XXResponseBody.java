@@ -9,6 +9,7 @@ public class XXResponseBody<T> {
 
     public static final int CODE_RIGHT = 0;
 
+    public static final int CODE_TIP_PARAM_ERROR = 100;
 
     private XXResponseBody(){}
 

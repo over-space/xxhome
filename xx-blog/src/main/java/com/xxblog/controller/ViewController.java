@@ -17,11 +17,13 @@ import java.util.Map;
 @RequestMapping(value = "/xxblog/view")
 public class ViewController {
 
-    private static final String VIEW_INDEX = "/xx-blog/index";
-    private static final String VIEW_ABOUT = "/xx-blog/about";
-    private static final String VIEW_CONTACT = "/xx-blog/contact";
-    private static final String VIEW_GALLERY = "/xx-blog/gallery";
-    public static final String[] VIEWS = {VIEW_INDEX, VIEW_ABOUT, VIEW_CONTACT, VIEW_GALLERY};
+    public static final String VIEW_INDEX = "/xx-blog/index";
+    public static final String VIEW_ABOUT = "/xx-blog/about";
+    public static final String VIEW_LOGIN = "/xx-blog/account/login";
+    public static final String VIEW_SIGNUP = "/xx-blog/account/signup";
+    public static final String VIEW_GALLERY = "/xx-blog/gallery";
+    public static final String[] VIEWS = {VIEW_INDEX, VIEW_ABOUT,
+            VIEW_LOGIN, VIEW_SIGNUP, VIEW_GALLERY};
 
     private static Map<String, String> mapView = new HashMap<>();
 
@@ -35,9 +37,8 @@ public class ViewController {
 
     @RequestMapping(value = "/{page}")
     public ModelAndView index(@PathVariable String page){
-        for(String view : VIEWS){
-            if(StringUtils.endsWith(view, page)) return new ModelAndView(view);
-        }
+        if(mapView.containsKey(page)) return new ModelAndView(mapView.get(page));
+
         return new ModelAndView(VIEW_INDEX);
     }
 

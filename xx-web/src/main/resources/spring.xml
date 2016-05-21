@@ -31,6 +31,14 @@
         <property name="cacheManager" ref="ehCacheManager" />
     </bean>
 
+    <!--验证码-->
+    <bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+        <property name="captchaEngine">
+            <bean class="com.xxbase.method.CaptchaEngine" />
+        </property>
+        <property name="minGuarantedStorageDelayInSeconds" value="3600" />
+    </bean>
+
     <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
         <!--<property name="cacheSeconds" value="${message.cache_seconds}" />-->
         <!--<property name="useCodeAsDefaultMessage" value="true" />-->
