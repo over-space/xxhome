@@ -20,19 +20,15 @@ public class CaptchaServiceImpl implements CaptchaService {
         return (BufferedImage) imageCaptchaService.getChallengeForID(captchaId);
     }
 
-    public boolean isValid(CaptchaTypeEnum captchaType, String captchaId, String captcha) {
-        if (captchaType == null) {
-            if (StringUtils.isNotEmpty(captchaId) && StringUtils.isNotEmpty(captcha)) {
-                try {
-                    return imageCaptchaService.validateResponseForID(captchaId, captcha.toUpperCase());
-                } catch (Exception e) {
-                    return false;
-                }
-            } else {
+    public boolean isValid(String captchaId, String captcha) {
+        if (StringUtils.isNotEmpty(captchaId) && StringUtils.isNotEmpty(captcha)) {
+            try {
+                return imageCaptchaService.validateResponseForID(captchaId, captcha.toUpperCase());
+            } catch (Exception e) {
                 return false;
             }
         } else {
-            return true;
+            return false;
         }
     }
 

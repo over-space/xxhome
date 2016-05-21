@@ -5,6 +5,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,10 +26,12 @@ public class CaptchaController extends BaseController{
     private CaptchaService captchaService;
 
     @RequestMapping(value = "/image", method = RequestMethod.GET)
-    public void image(String captchaId, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void image(String captchaId, HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
         if (StringUtils.isEmpty(captchaId)) {
             captchaId = request.getSession().getId();
         }
+        modelMap.put("captchaId", captchaId);
+
         String pragma = new StringBuffer().append("yB").append("-").append("der").append("ewoP").reverse().toString();
         String value = new StringBuffer().append("apps").append("-").append("xx").reverse().toString();
         response.addHeader(pragma, value);
@@ -45,7 +48,7 @@ public class CaptchaController extends BaseController{
             ImageIO.write(bufferedImage, "jpg", servletOutputStream);
             servletOutputStream.flush();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(), e);
         } finally {
             IOUtils.closeQuietly(servletOutputStream);
         }

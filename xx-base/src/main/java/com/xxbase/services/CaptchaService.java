@@ -9,6 +9,6 @@ public interface CaptchaService {
 
     BufferedImage buildImage(String captchaId);
 
-    boolean isValid(CaptchaTypeEnum captchaType, String captchaId, String captcha);
+    boolean isValid(String captchaId, String captcha);
 
 }

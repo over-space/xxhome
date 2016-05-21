@@ -2,11 +2,13 @@ package com.xxblog.controller;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.crypto.hash.Hash;
+import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,10 +38,10 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/{page}")
-    public ModelAndView index(@PathVariable String page){
+    public ModelAndView index(@PathVariable String page, HttpServletRequest request){
         if(mapView.containsKey(page)) return new ModelAndView(mapView.get(page));
 
-        return new ModelAndView(VIEW_INDEX);
+        return new ModelAndView(VIEW_INDEX, "sessionId", request.getSession().getId());
     }
 
 

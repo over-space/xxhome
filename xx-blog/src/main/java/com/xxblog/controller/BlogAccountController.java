@@ -3,6 +3,7 @@ package com.xxblog.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xxbase.controller.BaseController;
 import com.xxbase.params.XXResponseBody;
+import com.xxbase.services.CaptchaService;
 import com.xxbase.utils.CipherUtils;
 import com.xxbase.utils.XXStringUtils;
 import com.xxblog.entity.BlogAccountEntity;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 public class BlogAccountController extends BaseController {
 
     @Autowired private BlogAccountService blogAccountService;
+    @Autowired private CaptchaService captchaService;
 
     @ResponseBody
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -38,7 +40,7 @@ public class BlogAccountController extends BaseController {
         String email = param.getString("email");
         String username = param.getString("username");
         String password = param.getString("password");
-        String code = param.getString("code");
+        String captcha = param.getString("captcha");
 
         BlogAccountEntity blogAccountEntity = new BlogAccountEntity(username, CipherUtils.getTime64MD5(password), email, null);
 

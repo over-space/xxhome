@@ -9,10 +9,7 @@
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/font/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
-<!--
-Accord Template
-http://www.templatemo.com/tm-478-accord
--->   
+
     <title>Accord - Contact</title>
 </head>
 
@@ -50,15 +47,15 @@ http://www.templatemo.com/tm-478-accord
                                         </div>
           
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="email" name="password" placeholder="请输入密码..." ng-model="account.password1">
+                                            <input type="password" class="form-control" id="email" name="password" placeholder="请输入密码..." ng-model="account.password2">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="password" class="form-control" id="email" name="password" placeholder="密码再次确认..." ng-model="account.password2">
+                                            <input type="password" class="form-control" id="email" name="password" placeholder="密码再次确认..." ng-model="account.password">
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control" style="width: 180px; float: left" id="captcha" name="captcha" placeholder="验证码..." value="">
+                                            <input type="text" class="form-control" style="width: 180px; float: left" id="captcha" name="captcha" placeholder="验证码..." ng-model="account.captcha">
                                             <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=0" title="验证码" />
                                         </div>
 
@@ -68,16 +65,14 @@ http://www.templatemo.com/tm-478-accord
                                             
                                         <div class="form-group">
                                             <input id="submit" name="submit" type="submit" value="确定" class="btn view_more btn-submit" ng-click="doSignUp()">
-                                            <a class="btn view_more btn-default" style="height: 48px;width: 106px;line-height: 20px;padding-top: 13px; float:right;" href="login.xhtml">登录</a>
+                                            <a class="btn view_more btn-default" style="height: 48px;width: 106px;line-height: 20px;padding-top: 13px; float:right;" href="login.xhtml">{{sessionId}}登录</a>
                                         </div>            
                                     
                                     </form>    
                                 </div> <!-- .contact-left -->
       
                                 <div class="col-sm-12 col-md-6 contact_right">
-                                    
 
-                                    
                                     <div class="col-md-12 contact_info">
                                         <a href="mailto:info@company.com" class="contact-info-link">
                                             <i class="fa fa-envelope contact-fa"></i>xxplus@outlook.com
