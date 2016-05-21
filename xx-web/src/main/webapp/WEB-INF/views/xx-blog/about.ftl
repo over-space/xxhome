@@ -25,7 +25,7 @@ http://www.templatemo.com/tm-478-accord
 
                 <div class="main-page">
                     <aside class="main-navigation">
-                        <#include "xx-blog/menu.ftl"/>
+                        <#include "xx-blog/base/menu.ftl"/>
                     </aside> <!-- main-navigation -->
 
                     <div class="content-main">
@@ -189,9 +189,7 @@ http://www.templatemo.com/tm-478-accord
                 </div>
             </div>
             <footer class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                    <p class="copyright">Copyright © 2016 Company Name</p>
-                </div>
+                <#include "xx-blog/base/footer.ftl"/>
             </footer>            
         </div>
     </div>

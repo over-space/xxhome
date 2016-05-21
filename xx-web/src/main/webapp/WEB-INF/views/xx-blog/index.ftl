@@ -21,7 +21,7 @@
                 <div class="main-page">
 
                     <aside class="main-navigation">
-                        <#include "xx-blog/menu.ftl"/>
+                        <#include "xx-blog/base/menu.ftl"/>
                     </aside> <!-- main-navigation -->
                     
                     <div class="copyrights">Collect from <a href="http://www.17sucai.com/" >企业网站模板</a></div>
@@ -137,9 +137,7 @@
                 </div> <!-- .main-page -->
             </div> <!-- .row -->           
             <footer class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer">
-                    <p class="copyright">Copyright © 2016 Company Name</p>
-                </div>    
+                <#include "xx-blog/base/footer.ftl"/>
             </footer>  <!-- .row -->      
         </div> <!-- .container -->
     </div> <!-- .main-body -->
