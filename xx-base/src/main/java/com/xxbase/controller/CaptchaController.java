@@ -26,12 +26,10 @@ public class CaptchaController extends BaseController{
     private CaptchaService captchaService;
 
     @RequestMapping(value = "/image", method = RequestMethod.GET)
-    public void image(String captchaId, HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
+    public void image(String captchaId, HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (StringUtils.isEmpty(captchaId)) {
             captchaId = request.getSession().getId();
         }
-        modelMap.put("captchaId", captchaId);
-
         String pragma = new StringBuffer().append("yB").append("-").append("der").append("ewoP").reverse().toString();
         String value = new StringBuffer().append("apps").append("-").append("xx").reverse().toString();
         response.addHeader(pragma, value);

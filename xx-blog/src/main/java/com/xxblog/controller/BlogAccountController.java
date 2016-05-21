@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by admin on 16/05/17.
  */
 @Controller
-@RequestMapping("/xxblog/account/")
+@RequestMapping(value = "/xxblog/account/")
 public class BlogAccountController extends BaseController {
 
     @Autowired private BlogAccountService blogAccountService;
@@ -41,6 +41,11 @@ public class BlogAccountController extends BaseController {
         String username = param.getString("username");
         String password = param.getString("password");
         String captcha = param.getString("captcha");
+
+        boolean isCaptchaValid = captchaService.isValid(request.getSession().getId(), captcha);
+        if(!isCaptchaValid){
+            return XXResponseBody.failure(XXResponseBody.CODE_TIP_PARAM_ERROR, "验证码输入错误!");
+        }
 
         BlogAccountEntity blogAccountEntity = new BlogAccountEntity(username, CipherUtils.getTime64MD5(password), email, null);
 

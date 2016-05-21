@@ -39,9 +39,12 @@ public class ViewController {
 
     @RequestMapping(value = "/{page}")
     public ModelAndView index(@PathVariable String page, HttpServletRequest request){
-        if(mapView.containsKey(page)) return new ModelAndView(mapView.get(page));
+        Map<String, String> variables = new HashMap<>();
+        variables.put("sessionId", request.getSession().getId());
 
-        return new ModelAndView(VIEW_INDEX, "sessionId", request.getSession().getId());
+        if(mapView.containsKey(page)) return new ModelAndView(mapView.get(page), variables);
+
+        return new ModelAndView(VIEW_INDEX, variables);
     }
 
 

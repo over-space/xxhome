@@ -47,7 +47,7 @@
 
                                         <div class="form-group">
                                             <input type="text" class="form-control" style="width: 180px; float: left" id="captcha" name="captcha" placeholder="验证码..." value="">
-                                            <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=0" title="验证码" />
+                                            <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}" title="验证码" />
                                         </div>
 
                                         <div class="form-group">
@@ -111,7 +111,7 @@
         $().ready( function() {
             var $captchaImage = $("#captchaImage");
             $captchaImage.click(function (e) {
-                $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=0&timestamp=" + e.timeStamp);
+                $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}&timestamp=" + e.timeStamp);
             });
         });
     </script>

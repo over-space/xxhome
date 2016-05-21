@@ -56,7 +56,7 @@
 
                                         <div class="form-group">
                                             <input type="text" class="form-control" style="width: 180px; float: left" id="captcha" name="captcha" placeholder="验证码..." ng-model="account.captcha">
-                                            <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=0" title="验证码" />
+                                            <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}" title="验证码" />
                                         </div>
 
                                         <div class="form-group" ng-hide="isCheckRight">
@@ -65,7 +65,7 @@
                                             
                                         <div class="form-group">
                                             <input id="submit" name="submit" type="submit" value="确定" class="btn view_more btn-submit" ng-click="doSignUp()">
-                                            <a class="btn view_more btn-default" style="height: 48px;width: 106px;line-height: 20px;padding-top: 13px; float:right;" href="login.xhtml">{{sessionId}}登录</a>
+                                            <a class="btn view_more btn-default" style="height: 48px;width: 106px;line-height: 20px;padding-top: 13px; float:right;" href="login.xhtml">登录</a>
                                         </div>            
                                     
                                     </form>    
@@ -116,7 +116,7 @@
         $().ready( function() {
             var $captchaImage = $("#captchaImage");
             $captchaImage.click(function (e) {
-                $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=0&timestamp=" + e.timeStamp);
+                $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}&timestamp=" + e.timeStamp);
             });
         });
     </script>
