@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(readOnly = true)
-public class BlogCategoryServiceImpl extends BaseServiceImpl<BlogCategoryEntity, Long> implements BlogCategoryService{
+public class BlogCategoryServiceImpl extends BaseServiceImpl<BlogCategoryEntity, Long> implements BlogCategoryService {
 
     @Autowired
     private BlogCategoryDao blogCategoryDao;

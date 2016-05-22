@@ -10,14 +10,14 @@ import org.slf4j.LoggerFactory;
 /**
  * Created by lifang on 2015/1/22.
  */
-public class BaseTest{
+public class BaseTest {
 
     public Logger logger = LoggerFactory.getLogger(BaseTest.class);
 
     private Long startTime = null;
 
     @After
-    public void after(){
+    public void after() {
         Long endTime = System.currentTimeMillis();
         logger.info("=========================================================");
         logger.info(":::::::::::::::::::::::::::run time = {}ms", (endTime - startTime));
@@ -25,12 +25,12 @@ public class BaseTest{
     }
 
     @Before
-    public void before(){
+    public void before() {
         startTime = System.currentTimeMillis();
     }
 
     @Test
-    public void testRun(){
+    public void testRun() {
 
     }
 

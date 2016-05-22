@@ -3,11 +3,8 @@ package com.xxblog.services.impl;
 import com.xxbase.dao.BaseDao;
 import com.xxbase.services.impl.BaseServiceImpl;
 import com.xxblog.dao.BlogAccountDao;
-import com.xxblog.dao.BlogCategoryDao;
 import com.xxblog.entity.BlogAccountEntity;
-import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogAccountService;
-import com.xxblog.services.BlogCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional(readOnly = true)
-public class BlogAccountServiceImpl extends BaseServiceImpl<BlogAccountEntity, Long> implements BlogAccountService{
+public class BlogAccountServiceImpl extends BaseServiceImpl<BlogAccountEntity, Long> implements BlogAccountService {
 
     @Autowired
     private BlogAccountDao blogAccountDao;

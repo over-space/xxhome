@@ -10,14 +10,14 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 /**
  * Created by lifang on 2015/1/22.
  */
-public class SpringBaseTest extends AbstractJUnit4SpringContextTests{
+public class SpringBaseTest extends AbstractJUnit4SpringContextTests {
 
     public Logger logger = LoggerFactory.getLogger(SpringBaseTest.class);
 
     private Long startTime = null;
 
     @After
-    public void after(){
+    public void after() {
         Long endTime = System.currentTimeMillis();
         logger.info("=========================================================");
         logger.info(":::::::::::::::::::::::::::run time = {}ms", (endTime - startTime));
@@ -25,12 +25,12 @@ public class SpringBaseTest extends AbstractJUnit4SpringContextTests{
     }
 
     @Before
-    public void before(){
+    public void before() {
         startTime = System.currentTimeMillis();
     }
 
     @Test
-    public void testRun(){
+    public void testRun() {
 
     }
 }

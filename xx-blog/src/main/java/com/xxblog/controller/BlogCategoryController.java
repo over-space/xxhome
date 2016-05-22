@@ -1,6 +1,5 @@
 package com.xxblog.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.xxbase.params.XXResponseBody;
 import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogCategoryService;
@@ -22,11 +21,11 @@ public class BlogCategoryController {
 
     @ResponseBody
     @RequestMapping(value = "/persist")
-    public String persist(){
+    public XXResponseBody persist() {
         BlogCategoryEntity blogCategoryEntity = new BlogCategoryEntity();
         blogCategoryEntity.setName("1");
         blogCategoryService.persist(blogCategoryEntity);
-        return XXResponseBody.success(blogCategoryEntity);
+        return new XXResponseBody(blogCategoryEntity);
     }
 
 }

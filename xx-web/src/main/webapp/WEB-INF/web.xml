@@ -1,150 +1,150 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
-  <!-- 加载spring配置文件 -->
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring.xml</param-value>
-  </context-param>
-
-
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.png</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.jpg</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.gif</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.ico</url-pattern>
-  </servlet-mapping>
+    <!-- 加载spring配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring.xml</param-value>
+    </context-param>
 
 
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.css</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.js</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
 
-  <!-- Log4j配置 -->
-  <context-param>
-    <param-name>log4jConfigLocation</param-name>
-    <param-value>classpath:log4j.properties</param-value>
-  </context-param>
-  <!-- 扫描log4j配置文件时间间隔,单位毫秒 -->
-  <context-param>
-    <param-name>log4jRefreshInterval</param-name>
-    <param-value>6000</param-value>
-  </context-param>
-  <!-- 监听log4j配置 -->
-  <listener>
-    <listener-class>
-      org.springframework.web.util.Log4jConfigListener
-    </listener-class>
-  </listener>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
 
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <listener>
-    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
-  </listener>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ico</url-pattern>
+    </servlet-mapping>
 
-  <filter>
-    <filter-name>encodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-      <param-name>forceEncoding</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
 
-  <filter>
-    <filter-name>xxResponseFilter</filter-name>
-    <filter-class>com.xxbase.filter.XXResponseFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>xxResponseFilter</filter-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
 
-  <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>spring-mvc</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-      <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+    <!-- Log4j配置 -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+    <!-- 扫描log4j配置文件时间间隔,单位毫秒 -->
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>6000</param-value>
+    </context-param>
+    <!-- 监听log4j配置 -->
+    <listener>
+        <listener-class>
+            org.springframework.web.util.Log4jConfigListener
+        </listener-class>
+    </listener>
 
-  <servlet-mapping>
-    <servlet-name>spring-mvc</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </servlet-mapping>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
 
-  <filter>
-    <filter-name>shiroFilter</filter-name>
-    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-  </filter>
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
 
-  <filter>
-    <filter-name>DruidWebStatFilter</filter-name>
-    <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
-    <init-param>
-      <param-name>exclusions</param-name>
-      <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
-    </init-param>
-  </filter>
+    <filter>
+        <filter-name>xxResponseFilter</filter-name>
+        <filter-class>com.xxbase.filter.XXResponseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>xxResponseFilter</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </filter-mapping>
 
-  <filter-mapping>
-    <filter-name>shiroFilter</filter-name>
-    <url-pattern>/admin/*</url-pattern>
-  </filter-mapping>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-  <filter-mapping>
-    <filter-name>DruidWebStatFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+    <servlet>
+        <servlet-name>spring-mvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <servlet>
-    <servlet-name>DruidStatView</servlet-name>
-    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DruidStatView</servlet-name>
-    <url-pattern>/druid/*</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>spring-mvc</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>DruidWebStatFilter</filter-name>
+        <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+        <init-param>
+            <param-name>exclusions</param-name>
+            <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>shiroFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>DruidWebStatFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
 </web-app>

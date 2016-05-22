@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>xx-apps</groupId>
-    <artifactId>xx-apps</artifactId>
+    <groupId>xx-home</groupId>
+    <artifactId>xx-home</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -170,19 +170,15 @@
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.6.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.6.3</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.6.0</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
         </dependency>
+
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -314,11 +310,13 @@
                         </systemProperty>
                     </systemProperties>
                     <useTestClasspath>true</useTestClasspath>
-                    <classesDirectory>xx-web/target/classes/, xx-base/target/classes/, xx-plus/target/classes/, xx-blog/target/classes/</classesDirectory>
+                    <classesDirectory>xx-web/target/classes/, xx-base/target/classes/, xx-plus/target/classes/,
+                        xx-blog/target/classes/
+                    </classesDirectory>
                     <webAppSourceDirectory>xx-web/src/main/webapp</webAppSourceDirectory>
                     <testClassesDirectory>xx-web/src/test/resources</testClassesDirectory>
                     <webAppConfig>
-                        <contextPath>/xx-apps</contextPath>
+                        <contextPath>/xx-home</contextPath>
                         <defaultsDescriptor>xx-web/src/main/resources/webdefault.xml</defaultsDescriptor>
                     </webAppConfig>
                 </configuration>
@@ -326,20 +324,20 @@
 
             <!-- QueryDsl插件 -->
             <!--<plugin>-->
-                <!--<groupId>com.mysema.maven</groupId>-->
-                <!--<artifactId>apt-maven-plugin</artifactId>-->
-                <!--<version>1.0.9</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>process</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<outputDirectory>target/generated-sources/java</outputDirectory>-->
-                            <!--<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
+            <!--<groupId>com.mysema.maven</groupId>-->
+            <!--<artifactId>apt-maven-plugin</artifactId>-->
+            <!--<version>1.0.9</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<goals>-->
+            <!--<goal>process</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<outputDirectory>target/generated-sources/java</outputDirectory>-->
+            <!--<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
             <!--</plugin>-->
         </plugins>
         <defaultGoal>compile</defaultGoal>

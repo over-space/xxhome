@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>xx-apps</artifactId>
-        <groupId>xx-apps</groupId>
+        <artifactId>xx-home</artifactId>
+        <groupId>xx-home</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -13,13 +13,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>xx-apps</groupId>
+            <groupId>xx-home</groupId>
             <artifactId>xx-blog</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>xx-apps</groupId>
+            <groupId>xx-home</groupId>
             <artifactId>xx-plus</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

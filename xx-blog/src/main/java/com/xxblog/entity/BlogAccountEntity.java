@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_blog_account")
-public class BlogAccountEntity extends BaseEntity{
+public class BlogAccountEntity extends BaseEntity {
 
     @Column(length = 64)
     private String name;
@@ -27,7 +27,8 @@ public class BlogAccountEntity extends BaseEntity{
     @Column(length = 64)
     public String avatar;//头像
 
-    public BlogAccountEntity(){}
+    public BlogAccountEntity() {
+    }
 
     public BlogAccountEntity(String name, String password, String email, String avatar) {
         this.name = name;

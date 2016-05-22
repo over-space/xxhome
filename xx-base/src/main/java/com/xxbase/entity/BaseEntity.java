@@ -1,6 +1,7 @@
 package com.xxbase.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xxbase.listerer.EntityListener;
 
 import javax.persistence.*;
@@ -22,8 +23,10 @@ public class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "GEN_INDEX")
     private Long id;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createDate;//创建时间
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date modifyDate;//更新时间
 
     public Long getId() {

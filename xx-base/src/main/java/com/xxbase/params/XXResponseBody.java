@@ -1,78 +1,70 @@
 package com.xxbase.params;
 
-import com.alibaba.fastjson.JSON;
-
 /**
  * Created by admin on 16/05/19.
  */
 public class XXResponseBody<T> {
 
+    /**
+     * 错误状态码约定：
+     * errorCode == 0 , 返回结果完全正确
+     * errorCode == 100，前端所传参数有错
+     * errorCode == 1000，验证码输入错误
+     * errorCode == 1000000，未知的异常
+     */
+
     public static final int CODE_RIGHT = 0;
 
-    public static final int CODE_TIP_PARAM_ERROR = 100;
+    public static final int CODE_PARAM_ERROR = 100;
+    public static final String MESSAGE_PARAM_ERROR = "参数错误，请检查表单是否填写完整!";
 
-    private XXResponseBody(){}
+    public static final int CODE_CAPTCHA_ERROR = 1000;
+    public static final String MESSAGE_CAPTCHA_ERROR = "验证码输入错误!";
+
+    public static final int CODE_UNKNOWN_EXCEPTION = 1000000;
+    public static final String MESSAGE_UNKNOWN_EXCEPTION = "程序猿偷懒了，系统程序未知的BUG!";
 
 
-    public static String success(){
-        return JSON.toJSONString(new Body());
+    private int errorCode = CODE_RIGHT;
+
+    private String message = "";
+
+    private T data;
+
+
+    public XXResponseBody() {
     }
 
-    public static String success(Object data){
-        return JSON.toJSONString(new Body(data));
+    public XXResponseBody(T data) {
+        this.data = data;
     }
 
-    public static String failure(int code, String message){
-        return JSON.toJSONString(new Body<>(code, message));
+    public XXResponseBody(int errorCode, String message) {
+        this.errorCode = errorCode;
+        this.message = message;
     }
 
-   static class Body<T>{
-
-        private int code = CODE_RIGHT;
-        private String message;
-        private T data;
-
-       public Body() {
-       }
-
-       public Body(T t) {
-           this.data = t;
-       }
-
-        public Body(int code, String message) {
-            this.code = code;
-            this.message = message;
-        }
-
-        public Body(int code, String message, T data) {
-            this.code = code;
-            this.message = message;
-            this.data = data;
-        }
-
-        public int getCode() {
-            return code;
-        }
-
-        public void setCode(int code) {
-            this.code = code;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public T getData() {
-            return data;
-        }
-
-        public void setData(T data) {
-            this.data = data;
-        }
+    public int getErrorCode() {
+        return errorCode;
     }
 
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

@@ -11,7 +11,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "t_blog_category")
-public class BlogCategoryEntity extends BaseEntity{
+public class BlogCategoryEntity extends BaseEntity {
 
     @Column(length = 64)
     private String name;

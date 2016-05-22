@@ -11,7 +11,8 @@
     </div>
 
     <div class="menu-container">
-        <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main" ng-click="doAccountManager()">
+        <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main"
+             ng-click="doAccountManager()">
             <a href="signup.xhtml" class="main-menu-link about block-keep-ratio__content flexbox-center">
                 <i class="fa fa-user fa-4x main-menu-link-icon"></i>
                 登录/注册
