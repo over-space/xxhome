@@ -11,6 +11,7 @@ import com.xxblog.services.BlogAccountService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,15 +57,27 @@ public class BlogAccountController extends BaseController {
 
 
     @ResponseBody
-    @RequestMapping(value = "/check", method = RequestMethod.POST)
-    public XXResponseBody check(String email) {
+    @RequestMapping(value = "/check/{prop}", method = RequestMethod.POST)
+    public XXResponseBody check(@PathVariable String prop, String value, HttpServletRequest request) {
 
-        if (StringUtils.isBlank(email)) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "邮箱不允许为空!");
+        if(StringUtils.equals(prop, "email")) {
 
-        BlogAccountEntity blogAccountEntity = blogAccountService.findByEmail(email);
+            if (StringUtils.isBlank(value)) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "邮箱不允许为空!");
 
-        if (blogAccountEntity != null) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "邮箱已经被注册!");
+            BlogAccountEntity blogAccountEntity = blogAccountService.findByEmail(value);
+
+            if (blogAccountEntity != null) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "邮箱已经被注册!");
+        }
+
+        else if(StringUtils.equals(prop, "captcha")){
+            if (StringUtils.isBlank(value)) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "验证码不允许为空!");
+
+            boolean isCaptchaValid = captchaService.isValid(request.getSession().getId(), value);
+
+            if(!isCaptchaValid) return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, "验证码输入错误!");
+        }
 
         return new XXResponseBody();
     }
+
 }

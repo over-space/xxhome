@@ -38,38 +38,38 @@
                             <div class="col-sm-12 col-md-6 contact_left">
                                 <form class="form-horizontal" method="post" action="javascript:void(0)">
 
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{true:'has-success',false:'has-error'}[valid.isEmailValid]">
                                         <input type="text" class="form-control" id="name" name="name"
-                                               placeholder="请输入邮箱..." ng-model="account.email" ng-blur="checkEmail()">
+                                               placeholder="请输入邮箱..." ng-model="account.email" ng-blur="isEmailValid()">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{true:'has-success',false:'has-error'}[valid.isUsernameValid]">
                                         <input type="text" class="form-control" id="name" name="name"
-                                               placeholder="请输入用户名..." ng-model="account.username">
+                                               placeholder="请输入用户名..." ng-model="account.username" ng-blur="isUsernameValid()">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{true:'has-success',false:'has-error'}[valid.isPasswordValid]">
                                         <input type="password" class="form-control" id="email" name="password"
-                                               placeholder="请输入密码..." ng-model="account.password2">
+                                               placeholder="请输入密码..." ng-model="account.password" ng-blur="isPasswordValid()">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{true:'has-success',false:'has-error'}[valid.isPassword2Valid]">
                                         <input type="password" class="form-control" id="email" name="password"
-                                               placeholder="密码再次确认..." ng-model="account.password">
+                                               placeholder="密码再次确认..." ng-model="account.password2" ng-blur="isPassword2Valid()">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{true:'has-success',false:'has-error'}[valid.isCaptchaValid]">
                                         <input type="text" class="form-control" style="width: 180px; float: left"
                                                id="captcha" name="captcha" placeholder="验证码..."
-                                               ng-model="account.captcha">
+                                               ng-model="account.captcha" ng-blur="isCaptchaValid()">
                                         <img id="captchaImage" class="captchaImage"
                                              style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;"
                                              src="${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}"
                                              title="验证码"/>
                                     </div>
 
-                                    <div class="form-group" ng-hide="isCheckRight">
-                                        <span style="color: red;">{{account.message}}</span>
+                                    <div class="form-group" ng-hide="isCompletelyCorrect">
+                                        <span style="color: red;">{{valid.message}}</span>
                                     </div>
 
                                     <div class="form-group">
