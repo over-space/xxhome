@@ -28,7 +28,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #161E2C;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Microsoft YaHei" !important;;
     overflow-x: hidden;
 }
 

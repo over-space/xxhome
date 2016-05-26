@@ -7,8 +7,9 @@
 
     <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${xxblog_path}/font/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
+
     <title>Accord - Contact</title>
 </head>
 
@@ -19,7 +20,7 @@
 
             <div class="main-page">
                 <aside class="main-navigation">
-                <#include "xx-blog/base/menu.ftl"/>
+                    <#include "xx-blog/base/menu.ftl"/>
                 </aside> <!-- main-navigation -->
 
                 <div class="content-main contact-content">
@@ -37,23 +38,34 @@
                             <div class="col-sm-12 col-md-6 contact_left">
                                 <form class="form-horizontal" method="post" action="">
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="name" name="name"
-                                               placeholder="请输入邮箱..." value="">
+                                    <div class="form-group has-success has-feedback">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-envelope"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupSuccess1Status" placeholder="请输入邮箱..." ng-model="account.email">
+                                        </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" id="email" name="password"
-                                               placeholder="请输入密码..." value="">
+                                    <#--确认密码    -->
+                                    <div class="form-group has-success has-feedback">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-lock"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="password" name="password" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password">
+                                        </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" style="width: 180px; float: left"
-                                               id="captcha" name="captcha" placeholder="验证码..." value="">
-                                        <img id="captchaImage" class="captchaImage"
-                                             style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;"
-                                             src="${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}"
-                                             title="验证码"/>
+                                    <#--验证码    -->
+                                    <div class="form-group has-success has-feedback">
+                                        <div class="input-group col-xs-8" style="float: left">
+                                            <span class="input-group-addon">
+                                                <i class="glyphicon glyphicon-magnet"></i>
+                                            </span>
+                                            <input type="text" class="form-control" id="captcha" name="captcha" aria-describedby="inputGroupSuccess1Status" placeholder="请输入验证码..." ng-model="account.captcha">
+                                        </div>
+                                        <img id="captchaImage" class="captchaImage" style="margin-left:10px;float: left;vertical-align: middle; cursor: pointer;" src="${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}" title="验证码"/>
                                     </div>
 
                                     <div class="form-group">
@@ -76,25 +88,6 @@
                             </div> <!-- .contact-left -->
 
                             <div class="col-sm-12 col-md-6 contact_right">
-
-
-                                <div class="col-md-12 contact_info">
-                                    <a href="mailto:info@company.com" class="contact-info-link">
-                                        <i class="fa fa-envelope contact-fa"></i>xxplus@outlook.com
-                                    </a><br/>
-                                    <a href="+15618757547" class="contact-info-link">
-                                        <i class="fa fa-mobile contact-fa"></i>156-1875-7547
-                                    </a><br/>
-                                    <a href="+297177122" class="contact-info-link">
-                                        <i class="fa fa-phone contact-fa"></i>297177122
-                                    </a><br/>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <span><i class="fa fa-rss social-icon rss_icon"></i></span>
-                                    <span><i class="fa fa-twitter social-icon twitter_icon"></i></span>
-                                    <span><i class="fa fa-facebook social-icon facebook_icon"></i></span>
-                                </div>
 
                             </div> <!-- .contact_right -->
 

@@ -31,8 +31,8 @@ public class BlogAccountController extends BaseController {
     private CaptchaService captchaService;
 
     @ResponseBody
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public XXResponseBody signup(HttpServletRequest request) {
+    @RequestMapping(value = "/sign", method = RequestMethod.POST)
+    public XXResponseBody sign(HttpServletRequest request) {
         JSONObject param = XXStringUtils.getJsonObject(request);
 
         if (param == null) {

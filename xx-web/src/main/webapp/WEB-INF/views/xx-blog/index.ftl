@@ -7,7 +7,7 @@
 
     <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${xxblog_path}/font/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
     <link rel="shortcut icon" href="${xxbase_path}/icon/favicon.ico"/>
 
@@ -23,8 +23,6 @@
                 <aside class="main-navigation">
                 <#include "xx-blog/base/menu.ftl"/>
                 </aside> <!-- main-navigation -->
-
-                <div class="copyrights">Collect from <a href="http://www.17sucai.com/">企业网站模板</a></div>
 
                 <div class="content-main">
                     <div class="row margin-b-30">

@@ -20,10 +20,13 @@ public class ViewController {
     public static final String VIEW_INDEX = "/xx-blog/index";
     public static final String VIEW_ABOUT = "/xx-blog/about";
     public static final String VIEW_LOGIN = "/xx-blog/account/login";
-    public static final String VIEW_SIGNUP = "/xx-blog/account/signup";
+    public static final String VIEW_SIGN = "/xx-blog/account/sign";
     public static final String VIEW_GALLERY = "/xx-blog/gallery";
+    public static final String VIEW_SUBJECT = "/xx-blog/blog/subject";
+
     public static final String[] VIEWS = {VIEW_INDEX, VIEW_ABOUT,
-            VIEW_LOGIN, VIEW_SIGNUP, VIEW_GALLERY};
+            VIEW_LOGIN, VIEW_SIGN, VIEW_GALLERY,
+            VIEW_SUBJECT};
 
     private static Map<String, String> mapView = new HashMap<>();
 

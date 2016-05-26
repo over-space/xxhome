@@ -1,0 +1,27 @@
+
+.banner-main-home{
+    padding: 20px 30px 60px 50px;
+}
+
+.banner-main-home .subject-title{
+    width: 95%;
+}
+.banner-main-home .subject-title .heading h3{
+    margin-left: 10px;
+}
+
+.banner-main-home .subject-title .heading .text-lowercase{
+    font-size: 14px;
+}
+
+.banner-main-home .subject-title .desc-footer{
+    padding-left: 15px;
+}
+
+.banner-main-home .subject-title .desc-footer hr{
+    border: 0;
+    width: 96%;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid white;
+}
+

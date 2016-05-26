@@ -25,7 +25,7 @@ accountViewApp.controller('accountController', function ($scope, $http) {
 
         if (!flag) return false;
 
-        $http.post("../account/signup.xhtml", $scope.account).success(function (req) {
+        $http.post("../account/sign.xhtml", $scope.account).success(function (req) {
             if (req.code != 0) {
                 $scope.valid.message = req.message;
             }

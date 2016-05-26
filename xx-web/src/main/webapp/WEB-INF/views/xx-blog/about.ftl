@@ -8,12 +8,9 @@
 
     <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${xxblog_path}/font/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
-    <!--
-    Accord Template
-    http://www.templatemo.com/tm-478-accord
-    -->
+
     <title>Accord - About</title>
 
 </head>
