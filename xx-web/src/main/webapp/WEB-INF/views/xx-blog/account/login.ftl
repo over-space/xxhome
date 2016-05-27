@@ -105,8 +105,8 @@
     </div> <!-- .container -->
 </div> <!-- .main-body -->
 
-<script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
 <script src="${xxblog_path}/js/bootstrap.min.js"></script>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
 
 <script language="JavaScript">
     $().ready(function () {

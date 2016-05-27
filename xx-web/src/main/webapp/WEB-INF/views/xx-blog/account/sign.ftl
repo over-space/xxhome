@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
-
     <title>Accord - Contact</title>
 </head>
 
@@ -144,10 +143,19 @@
 <script src="${xxblog_path}/js/accountController.js"></script>
 
 <script language="JavaScript">
-    $().ready(function () {
+    $(document).ready(function () {
         var $captchaImage = $("#captchaImage");
         $captchaImage.click(function (e) {
             $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}&timestamp=" + e.timeStamp);
+        });
+    });
+
+    $('#xx-menu').on('click', function(){
+        layer.open({
+            type: 2,
+            area: ['600px', '360px'],
+            shadeClose: true, //点击遮罩关闭
+            content: 'login.xhtml'
         });
     });
 </script>
