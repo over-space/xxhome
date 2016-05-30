@@ -5,3 +5,38 @@
 .blog-desc h5{
     float: left;
 }
+
+.photo{
+    width: 56px;
+    height: 56px;
+    float: left;
+    margin-top: 6px;
+}
+
+.blog-content{
+    float: left;
+    margin-left: 60px;
+    margin-top: -57px;
+}
+
+.blog-public{
+    margin-left: 20px;
+}
+
+.blog-public-eye{
+    margin-left: 40px;
+}
+
+.blog-public-bury{
+    float: right;
+}
+
+.blog-public-digger{
+    float: right;
+}
+
+.location-main{
+    margin-top: 6px;
+    margin-left: 10px;
+}
+

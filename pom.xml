@@ -15,6 +15,7 @@
         <module>xx-blog</module>
         <module>xx-test</module>
         <module>xx-plus</module>
+        <module>xx-study</module>
     </modules>
 
     <repositories>
@@ -268,6 +269,11 @@
             <version>1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.13.0</version>
+        </dependency>
     </dependencies>
 
     <build>

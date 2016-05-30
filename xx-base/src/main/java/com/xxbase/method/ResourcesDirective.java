@@ -13,6 +13,7 @@ import java.util.Map;
 public class ResourcesDirective implements TemplateDirectiveModel {
 
     private final static String KEY_SRC = "src";
+    private final static String KEY_TYPE = "type";
 
     /**
      * <@resources src="xxx/index.css"/>
@@ -31,15 +32,24 @@ public class ResourcesDirective implements TemplateDirectiveModel {
 
         String path = ((SimpleScalar) map.get(KEY_SRC)).getAsString();
 
+        String type = null;
+        if(map.containsKey(KEY_TYPE)) {
+            type = ((SimpleScalar) map.get(KEY_TYPE)).getAsString();
+        }
+
         if(StringUtils.isBlank(path)) return;
 
-        if(StringUtils.endsWithIgnoreCase(path, "css")){
-            String link = String.format("<link type='text/css' rel='stylesheet' href='%s'/>", path);
+        if(StringUtils.equalsIgnoreCase(type, "css") || StringUtils.endsWithIgnoreCase(path, "css")){
+            String link = String.format("<link type='text/css' rel='stylesheet' href='%s'/>\n", path);
             environment.getOut().write(link);
         }
-        else if(StringUtils.endsWithIgnoreCase(path, "js")){
-            String script = String.format("<script type='text/javascript' src='%s'/>", path);
+        else if(StringUtils.equalsIgnoreCase(type, "js") || StringUtils.endsWithIgnoreCase(path, "js")){
+            String script = String.format("<script type='text/javascript' src='%s'/>\n", path);
             environment.getOut().write(script);
+        }
+        else if(StringUtils.equalsIgnoreCase(type, "ico") || StringUtils.endsWithIgnoreCase(path, "ico")){
+            String link = String.format("<link rel='shortcut icon' href='%s'/>", path);
+            environment.getOut().write(link);
         }
     }
 }
