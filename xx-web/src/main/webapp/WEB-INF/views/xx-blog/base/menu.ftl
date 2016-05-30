@@ -21,7 +21,7 @@
                 <div class="block-keep-ratio block-keep-ratio-2-1 block-width-full home">
                     <a href="index.xhtml" class="block-keep-ratio__content  main-menu-link">
                         <span class="main-menu-link-text">
-                            HOME
+                            首页
                         </span>
                     </a>
                 </div>
@@ -37,24 +37,25 @@
                 </div>
 
                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
-                    <a href="contact.xhtml" class="main-menu-link contact block-keep-ratio__content flexbox-center">
-                        <i class="fa fa-envelope-o fa-4x main-menu-link-icon"></i>
-                        CONTACT
+                    <a href="write.xhtml" class="main-menu-link contact block-keep-ratio__content flexbox-center">
+                        <i class="fa fa-pencil-square-o fa-4x main-menu-link-icon"></i>
+                        写博客
                     </a>
                 </div>
             </div>
 
             <div class="menu-container">
                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-left  about-main" id="xx-menu">
-                    <a href="javascript:void(0)" class="main-menu-link about block-keep-ratio__content flexbox-center">
+                    <a href="list.xhtml" class="main-menu-link about block-keep-ratio__content flexbox-center">
                         <i class="fa fa-bars fa-4x main-menu-link-icon"></i>
+                        我的博客
                     </a>
                 </div>
 
                 <div class="block-keep-ratio  block-keep-ratio-1-1  block-width-half  pull-right  contact-main">
                     <a href="contact.xhtml" class="main-menu-link contact block-keep-ratio__content flexbox-center">
                         <i class="fa fa-comments fa-4x main-menu-link-icon"></i>
-                        CONTACT
+                        消息
                     </a>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                 <div class="block-keep-ratio block-keep-ratio-1-1 block-keep-ratio-md-2-1 block-width-full gallery">
                     <a href="gallery.xhtml" class="main-menu-link  block-keep-ratio__content">
                         <span class="main-menu-link-text">
-                            GALLERY
+                            相册
                         </span>
                     </a>
                 </div>

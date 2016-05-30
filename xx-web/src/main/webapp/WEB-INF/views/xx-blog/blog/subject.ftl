@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+    <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
     <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/blog/subject.css">
 
     <title>XX博客首页</title>

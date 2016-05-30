@@ -1,0 +1,31 @@
+
+
+.blog-title{
+    margin-top: 5px;
+}
+
+.blog-title select{
+    width: 100px;
+    float: left;
+}
+.blog-title input{
+    float: left;
+    width: 79%;
+}
+
+.blog-content{
+    margin-left: 5px;
+}
+
+.text-uppercase{
+    color: #999;
+}
+.blog-content .text-uppercase{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.blog-category-list {
+    width: 100px;
+    float: left;
+}
