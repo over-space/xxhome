@@ -1,7 +1,7 @@
 package com.xxbase.method;
 
-import com.alibaba.druid.util.StringUtils;
 import com.xxbase.utils.CipherUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -14,8 +14,7 @@ public class EncryptPropertyConfigurer extends PropertyPlaceholderConfigurer {
 
     private Logger logger = LoggerFactory.getLogger(EncryptPropertyConfigurer.class);
 
-    //需要解密的属性
-    private String[] encryptPropNames = {"jdbc.username", "jdbc.password"};
+    private String encrypts;
 
     /**
      * 对特定属性的属性值进行转换
@@ -43,13 +42,17 @@ public class EncryptPropertyConfigurer extends PropertyPlaceholderConfigurer {
      * @return
      */
     private boolean isEncryptProp(String propertyName) {
-        for (String encryptPropName : encryptPropNames) {
-            if (StringUtils.equals(encryptPropName, propertyName)) {
-                return true;
-            }
+        if (StringUtils.contains(encrypts, propertyName)) {
+            return true;
         }
         return false;
     }
 
+    public String getEncrypts() {
+        return encrypts;
+    }
 
+    public void setEncrypts(String encrypts) {
+        this.encrypts = encrypts;
+    }
 }

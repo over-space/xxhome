@@ -10,6 +10,7 @@
     <!-- 需要解密的文件 -->
     <bean class="com.xxbase.method.EncryptPropertyConfigurer">
         <property name="location" value="classpath:jdbc.properties"/>
+        <property name="encrypts" value="jdbc.username, jdbc.password"></property>
         <property name="fileEncoding" value="UTF-8"></property>
     </bean>
 
@@ -19,7 +20,6 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
         <property name="location" value="classpath:common.properties"/>
     </bean>
-
     <cache:annotation-driven cache-manager="cacheManager"/>
 
     <bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
