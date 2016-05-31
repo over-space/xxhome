@@ -28,9 +28,12 @@ public class ViewController {
     public static final String VIEW_WRITE = "/xx-blog/blog/write";
     public static final String VIEW_LIST = "/xx-blog/blog/list";
 
+    public static final String VIEW_ERROR_404 = "/xx-base/error/404-01";
+
     public static final String[] VIEWS = {VIEW_INDEX, VIEW_ABOUT,
             VIEW_LOGIN, VIEW_SIGN, VIEW_GALLERY,
-            VIEW_SUBJECT, VIEW_WRITE, VIEW_LIST};
+            VIEW_SUBJECT, VIEW_WRITE, VIEW_LIST,
+            VIEW_ERROR_404};
 
     private static Map<String, String> mapView = new HashMap<>();
 
