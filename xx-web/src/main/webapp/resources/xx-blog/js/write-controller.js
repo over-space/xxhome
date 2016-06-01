@@ -1,7 +1,7 @@
 
 var writeViewApp = angular.module('writeViewApp', []);
 
-writeViewApp.controller('writeController', function ($scope) {
+writeViewApp.controller('write-controller', function ($scope) {
 
     $scope.blogTypeList = [
         {type:0, text:"请选择"},

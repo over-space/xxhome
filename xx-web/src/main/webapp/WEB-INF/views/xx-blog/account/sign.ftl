@@ -13,7 +13,7 @@
 </head>
 
 <body class="contact-page">
-<div class="main-body" ng-app="accountViewApp" ng-controller="accountController">
+<div class="main-body" ng-app="accountViewApp" ng-controller="account-controller">
     <div class="container">
         <div class="row">
 
@@ -65,7 +65,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-lock"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="password" name="password" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password" ng-blur="isPasswordValid()">
+                                            <input type="password" class="form-control" id="password" name="password" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password" ng-blur="isPasswordValid()">
                                         </div>
                                         <#--<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>-->
                                     </div>
@@ -76,7 +76,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-lock"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="password2" name="password2" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password2" ng-blur="isPassword2Valid()">
+                                            <input type="password" class="form-control" id="password2" name="password2" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password2" ng-blur="isPassword2Valid()">
                                         </div>
                                         <#--<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>-->
                                     </div>
@@ -137,27 +137,18 @@
     </div> <!-- .container -->
 </div> <!-- .main-body -->
 
-<script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
-<script src="${xxblog_path}/js/bootstrap.min.js"></script>
-<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-<script src="${xxblog_path}/js/accountController.js"></script>
+    <script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
+    <script src="${xxblog_path}/js/bootstrap.min.js"></script>
+    <script src="${xxbase_path}/js/angular.min.js"></script>
+    <script src="${xxblog_path}/js/account-controller.js"></script>
 
-<script language="JavaScript">
-    $(document).ready(function () {
-        var $captchaImage = $("#captchaImage");
-        $captchaImage.click(function (e) {
-            $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}&timestamp=" + e.timeStamp);
+    <script language="JavaScript">
+        $(document).ready(function () {
+            var $captchaImage = $("#captchaImage");
+            $captchaImage.click(function (e) {
+                $captchaImage.attr("src", "${path}/xxbase/captcha/image.xhtml?captchaId=${sessionId}&timestamp=" + e.timeStamp);
+            });
         });
-    });
-
-    $('#xx-menu').on('click', function(){
-        layer.open({
-            type: 2,
-            area: ['600px', '360px'],
-            shadeClose: true, //点击遮罩关闭
-            content: 'login.xhtml'
-        });
-    });
-</script>
+    </script>
 </body>
 </html>

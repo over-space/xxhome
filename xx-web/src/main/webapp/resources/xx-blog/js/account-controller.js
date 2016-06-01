@@ -1,9 +1,10 @@
 var accountViewApp = angular.module('accountViewApp', []);
-accountViewApp.controller('accountController', function ($scope, $http) {
+accountViewApp.controller('account-controller', function ($scope, $http) {
 
 
 
-    $scope.valid = {isEmailValid:true,
+    $scope.valid = {
+        isEmailValid:true,
         isUsernameValid:true,
         isPasswordValid:true,
         isPassword2Valid:true,
@@ -22,9 +23,7 @@ accountViewApp.controller('accountController', function ($scope, $http) {
     //注册
     $scope.doSignUp = function () {
         var flag = isAccountValid();
-
         if (!flag) return false;
-
         $http.post("../account/sign.xhtml", $scope.account).success(function (req) {
             if (req.code != 0) {
                 $scope.valid.message = req.message;
@@ -33,6 +32,7 @@ accountViewApp.controller('accountController', function ($scope, $http) {
     }
 
 
+    //校验邮箱是否合法
     $scope.isEmailValid = function () {
         $scope.valid.isEmailValid = true;
         if ($scope.account.email == "") {
@@ -47,9 +47,10 @@ accountViewApp.controller('accountController', function ($scope, $http) {
             $scope.valid.message = req.message;
             return false;
         });
-        return false;
+        return true;
     }
 
+    //校验用户名
     $scope.isUsernameValid = function () {
         $scope.valid.isUsernameValid = true;
         if ($scope.account.username == "") {
@@ -60,6 +61,7 @@ accountViewApp.controller('accountController', function ($scope, $http) {
         return true;
     }
 
+    //校验密码
     $scope.isPasswordValid = function () {
         $scope.valid.isPasswordValid = true;
         if ($scope.account.password == "") {
@@ -85,6 +87,7 @@ accountViewApp.controller('accountController', function ($scope, $http) {
         return true;
     }
 
+    //校验验证码
     $scope.isCaptchaValid = function () {
         $scope.valid.isCaptchaValid = true;
         if ($scope.account.captcha == "") {
@@ -109,17 +112,15 @@ accountViewApp.controller('accountController', function ($scope, $http) {
     }
 
 
+    //判断注册信息是否合法
     var isAccountValid = function () {
         var flag = true;
-
         if(flag) flag = $scope.isEmailValid();
         if(flag) flag = $scope.isUsernameValid();
         if(flag) flag = $scope.isPasswordValid();
         if(flag) flag = $scope.isPassword2Valid();
         if(flag) flag = $scope.isCaptchaValid();
-
         return flag;
     }
-
 
 });

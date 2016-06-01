@@ -17,7 +17,7 @@
     </head>
 
     <body>
-        <div class="main-body" ng-app="writeViewApp" ng-controller="writeController">
+        <div class="main-body" ng-app="writeViewApp" ng-controller="write-controller">
             <div class="container">
                 <div class="row">
                     <div class="main-page">
@@ -102,9 +102,8 @@
         <script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
         <script src="${xxblog_path}/js/bootstrap.min.js"></script>
         <script src="${xxbase_path}/js/bootstrap/bootstrap-markdown.js"></script>
-
-        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
-        <script type="application/javascript" src="${xxblog_path}/js/blog/writeController.js"></script>
+        <script src="${xxbase_path}/js/angular.min.js"></script>
+        <script type="application/javascript" src="${xxblog_path}/js/write-controller.js"></script>
 
         <script language="javascript">
             $("#blog-textarea").markdown({

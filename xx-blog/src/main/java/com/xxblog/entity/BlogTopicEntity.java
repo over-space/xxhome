@@ -18,7 +18,7 @@ public class BlogTopicEntity extends BaseEntity {
     private String name;
 
     @Lob
-    private String comment;
+    private String content;
 
     //喜欢（顶）
     private int digger = 0;
@@ -45,12 +45,12 @@ public class BlogTopicEntity extends BaseEntity {
         this.name = name;
     }
 
-    public String getComment() {
-        return comment;
+    public String getContent() {
+        return content;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public int getDigger() {

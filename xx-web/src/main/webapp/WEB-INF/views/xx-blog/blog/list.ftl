@@ -307,9 +307,9 @@
     </div> <!-- .main-body -->
 
     <!-- JavaScript -->
-    <@link src="${xxblog_path}/js/jquery-1.11.3.min.js"/>
-    <@link src="${xxblog_path}/js/bootstrap.min.js"/>
-    <@link src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"/>
+    <script src="${xxblog_path}/js/jquery-1.11.3.min.js"/>
+    <script src="${xxblog_path}/js/bootstrap.min.js"/>
+    <script src="${xxbase_path}/js/angular.min.js"/>
 
 </body>
 </html>
