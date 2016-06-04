@@ -38,39 +38,40 @@
                                                 <#--<h3 class="text-uppercase">Proin gravida nibhvel</h3>-->
                                                 <h4 class="text-uppercase">文章标题</h4>
                                                 <div class="blog-title">
+                                                    <input type="text" class="form-control" id="title" name="title" ng-model="blog.title">
                                                     <select class="form-control col-xs-2"
                                                             ng-model="blog.type"
                                                             ng-options="opt.type as opt.text for opt in blogTypeList"
-                                                            ng-init="0"></select>
-                                                    <input type="text" class="form-control" id="title" name="title" ng-model="blog.title">
+                                                            ng-init="1"></select>
                                                 </div>
                                             </div>
                                             <div class="row blog-content">
                                                 <div>
                                                     <h4 class="text-uppercase">文章内容</h4>
-                                                    <textarea id="blog-textarea" data-width="880" data-height="500" name="content" data-provide="markdown" rows="10"></textarea>
+                                                    <textarea id="blog-textarea" data-width="880" data-height="500" name="content" data-provide="markdown" rows="10" ng-model="blog.content"></textarea>
                                                 </div>
                                                 <div>
                                                     <h4 class="text-uppercase">文章标签(添加Tag，你的内容能被更多人看到)</h4>
-                                                    <input type="text" class="form-control" id="tag" name="tag" ng-model="blog.tag">
+                                                    <input type="text" class="form-control" id="tag" name="tag" ng-model="blog.tags">
                                                 </div>
                                                 <div>
                                                     <h4 class="text-uppercase">个人分类[编辑分类]</h4>
-                                                    <input type="text" class="form-control" id="tag" name="tag" ng-model="blog.tag">
+                                                    <div ng-repeat="group in blogGroupList">
+                                                        <label class="blog-category-group-radio">
+                                                            <input type="radio" name="blogGroup" id="blogGroup" ng-value="{{group.id}}" >
+                                                            <span>{{group.name}}</span>
+                                                        </label style="float: left;">
+                                                    </div>
                                                 </div>
                                                 <div>
+                                                    <br/>
                                                     <h4 class="text-uppercase">文章分类</h4>
-                                                    <div class="blog-category-list" ng-repeat="category in blogCategoryList">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{category.id}}" checked>
-                                                            <span>{{category.text}}</span>
+                                                    <div ng-repeat="category in blogCategoryList">
+                                                        <label class="blog-category-group-radio">
+                                                            <input type="radio" name="blogCategory" id="blogCategory" ng-value="{{category.id}}" >
+                                                            <span>{{category.name}}</span>
                                                         </label>
                                                     </div>
-                                                    <#--<input type="text" class="form-control" id="tag" name="tag" ng-model="blog.tag">-->
-                                                    <#--<input type="radio" id="1"><label for="1">移动开发</label>-->
-                                                    <#--<input type="radio" id="2"><label for="2">Web前端</label>-->
-                                                    <#--<input type="radio" id="3"><label for="3">架构设计</label>-->
-                                                    <#--<input type="radio" id="4"><label for="4">编程语言</label>-->
                                                 </div>
                                             </div>
                                             <p class="bottom-desc" style="margin-left: 5px;">
@@ -80,9 +81,9 @@
                                             <div class="col-sm-12 location-main">
                                                 <div class="pull-right bottom-user">
                                                     <#--<a href="#"><i class="fa fa-caret-right"></i><span>READ MORE</span></a>-->
-                                                   <input id="btn-submit" name="btn-submit" type="submit" value="发表文章" class="btn view_more btn-submit">
-                                                   <input id="btn-save" name="btn-save" type="submit" value="立即保存" class="btn view_more btn-submit">
-                                                   <input id="btn-give-up" name="btn-give-up" type="submit" value="舍弃" class="btn view_more btn-submit">
+                                                   <input id="btn-submit" name="btn-submit" og-click="doPublic()" type="submit" value="发表文章" class="btn view_more btn-submit">
+                                                   <input id="btn-save" name="btn-save" ng-click="doSave()" type="submit" value="立即保存" class="btn view_more btn-submit">
+                                                   <input id="btn-give-up" name="btn-give-up" ng-click="doGiveUp" type="submit" value="舍弃" class="btn view_more btn-submit">
                                                 </div>
                                             </div>
                                         </div>

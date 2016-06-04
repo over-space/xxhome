@@ -23,8 +23,8 @@ public class BlogCommentEntity extends BaseEntity{
     private BlogAccountEntity blogAccountEntity;
 
     @ManyToOne
-    @JoinColumn(name = "fk_blog_topic_id")
-    private BlogTopicEntity blogTopicEntity;
+    @JoinColumn(name = "fk_blog_content_id")
+    private BlogContentEntity blogContentEntity;
 
     @OneToOne
     @JoinColumn(name = "fk_father_comment_id")
@@ -54,12 +54,12 @@ public class BlogCommentEntity extends BaseEntity{
         this.blogAccountEntity = blogAccountEntity;
     }
 
-    public BlogTopicEntity getBlogTopicEntity() {
-        return blogTopicEntity;
+    public BlogContentEntity getBlogContentEntity() {
+        return blogContentEntity;
     }
 
-    public void setBlogTopicEntity(BlogTopicEntity blogTopicEntity) {
-        this.blogTopicEntity = blogTopicEntity;
+    public void setBlogContentEntity(BlogContentEntity blogContentEntity) {
+        this.blogContentEntity = blogContentEntity;
     }
 
     public BlogCommentEntity getBlogCommentEntity() {

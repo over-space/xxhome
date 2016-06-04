@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * Created by admin on 16/05/16.
  */
@@ -22,10 +24,13 @@ public class BlogCategoryController {
     @ResponseBody
     @RequestMapping(value = "/persist")
     public XXResponseBody persist() {
-        BlogCategoryEntity blogCategoryEntity = new BlogCategoryEntity();
-        blogCategoryEntity.setName("1");
-        blogCategoryService.persist(blogCategoryEntity);
-        return new XXResponseBody(blogCategoryEntity);
+        return new XXResponseBody();
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/list")
+    public XXResponseBody list(){
+        List<BlogCategoryEntity> result = blogCategoryService.findAll();
+        return new XXResponseBody(result);
+    }
 }

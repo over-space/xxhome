@@ -16,6 +16,21 @@ public class BlogCategoryEntity extends BaseEntity {
     @Column(length = 64)
     private String name;
 
+    @Column(length = 120)
+    private String description;
+
+    public BlogCategoryEntity() {
+    }
+
+    public BlogCategoryEntity(String name){
+        this.name = name;
+    }
+
+    public BlogCategoryEntity(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }
