@@ -1,11 +1,11 @@
 package com.xxblog.entity;
 
 import com.xxbase.entity.BaseEntity;
+import org.hibernate.annotations.Fetch;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.util.StringUtils;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by admin on 16/05/17.
@@ -18,7 +18,11 @@ public class BlogContentEntity extends BaseEntity {
     private String name;
 
     @Lob
+    @Lazy
     private String content;
+
+    @Column(length = 200)
+    private String tags;
 
     //喜欢（顶）
     private int digger = 0;
@@ -37,12 +41,24 @@ public class BlogContentEntity extends BaseEntity {
     @Column(length = 64)
     private String postTopic;
 
+
+    @Transient
+    public String summary;
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     public String getContent() {
@@ -91,5 +107,9 @@ public class BlogContentEntity extends BaseEntity {
 
     public void setPostTopic(String postTopic) {
         this.postTopic = postTopic;
+    }
+
+    public String getSummary() {
+        return org.apache.commons.lang3.StringUtils.substring(this.content, 0, 270);
     }
 }

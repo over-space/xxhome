@@ -23,6 +23,7 @@ public class BlogCategoryServiceImplTest extends SpringBaseTest {
 
     @Test
     public void testInit(){
+        blogCategoryService.clear();
         blogCategoryService.initBlogCategory();
     }
 
@@ -31,6 +32,11 @@ public class BlogCategoryServiceImplTest extends SpringBaseTest {
         BlogCategoryEntity blogCategoryEntity = new BlogCategoryEntity();
         blogCategoryEntity.setName("1");
         blogCategoryService.persist(blogCategoryEntity);
+    }
+
+    @Test
+    public void testClear(){
+        blogCategoryService.clear();
     }
 
     @Test

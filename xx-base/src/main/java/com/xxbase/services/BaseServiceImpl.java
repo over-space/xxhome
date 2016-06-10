@@ -3,6 +3,7 @@ package com.xxbase.services;
 import com.xxbase.dao.BaseDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.transaction.annotation.Transactional;
@@ -96,6 +97,14 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     }
 
     @Override
+    @Transactional
+    @CacheEvict(value = "blogCategoryListCache")
+    public void clear() {
+        baseDao.clear();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<T> findAllByName(String name) {
         return findAllByName(name);
     }

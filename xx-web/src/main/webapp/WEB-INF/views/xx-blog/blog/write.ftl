@@ -38,7 +38,7 @@
                                                 <#--<h3 class="text-uppercase">Proin gravida nibhvel</h3>-->
                                                 <h4 class="text-uppercase">文章标题</h4>
                                                 <div class="blog-title">
-                                                    <input type="text" class="form-control" id="title" name="title" ng-model="blog.title">
+                                                    <input type="text" class="form-control" id="title" name="title" ng-model="blog.name">
                                                     <select class="form-control col-xs-2"
                                                             ng-model="blog.type"
                                                             ng-options="opt.type as opt.text for opt in blogTypeList"
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div>
                                                     <h4 class="text-uppercase">文章标签(添加Tag，你的内容能被更多人看到)</h4>
-                                                    <input type="text" class="form-control" id="tag" name="tag" ng-model="blog.tags">
+                                                    <input type="text" class="form-control" id="tags" name="tags" ng-model="blog.tags">
                                                 </div>
                                                 <div>
                                                     <h4 class="text-uppercase">个人分类[编辑分类]</h4>

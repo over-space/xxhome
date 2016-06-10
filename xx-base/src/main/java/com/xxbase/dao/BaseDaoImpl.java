@@ -4,17 +4,17 @@ import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.path.PathBuilder;
 import com.xxbase.dao.BaseDao;
 import com.xxbase.exception.ServiceException;
+import com.xxbase.utils.XXStringUtils;
+import org.springframework.cache.annotation.CacheEvict;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by lifang on 2015/1/22.
@@ -82,6 +82,12 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
     }
 
     @Override
+    public void persistAll(Collection<T> coll) {
+        if(XXStringUtils.isEmpty(coll)) return;
+        for(T t : coll) persist(t);
+    }
+
+    @Override
     public T merge(T t) {
         entityManager.merge(t);
         return t;
@@ -92,4 +98,10 @@ public abstract class BaseDaoImpl<T, ID extends Serializable> implements BaseDao
         entityManager.remove(t);
     }
 
+    @Override
+    public void clear() {
+        String sql = "delete from " + clazz.getSimpleName();
+
+        entityManager.createQuery(sql).executeUpdate();
+    }
 }

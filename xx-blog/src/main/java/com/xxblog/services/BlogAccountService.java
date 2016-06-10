@@ -10,4 +10,5 @@ public interface BlogAccountService extends BaseService<BlogAccountEntity, Long>
 
     public BlogAccountEntity findByEmail(String email);
 
+    public void initDefaultAccount();
 }

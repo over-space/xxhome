@@ -4,6 +4,7 @@ package com.xxbase.dao;
 import com.xxbase.exception.ServiceException;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -22,9 +23,13 @@ public abstract interface BaseDao<T, ID extends Serializable> {
 
     public abstract void persist(T t);
 
+    public abstract void persistAll(Collection<T> coll);
+
     public abstract T merge(T t);
 
     public abstract void remove(T t);
+
+    public abstract void clear();
 
     public abstract List<T> findAllByName(String name);
 

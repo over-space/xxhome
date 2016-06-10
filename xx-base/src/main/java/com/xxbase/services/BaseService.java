@@ -26,6 +26,8 @@ public abstract interface BaseService<T, ID extends Serializable> {
 
     public abstract void remove(ID id);
 
+    public abstract void clear();
+
     public abstract List<T> findAllByName(String name);
 
 }

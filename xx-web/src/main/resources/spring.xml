@@ -15,6 +15,16 @@
     </bean>
 
 
+    <bean class="com.xxbase.method.XXPropertyPlaceholder">
+        <property name="locations">
+            <list>
+                <value>classpath:blog-init-setting.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="UTF-8"></property>
+    </bean>
+
+
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="1"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>

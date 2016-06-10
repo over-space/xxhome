@@ -21,4 +21,28 @@ public class BlogGroupEntity extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "fk_blog_account_id")
     private BlogAccountEntity blogAccountEntity;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BlogAccountEntity getBlogAccountEntity() {
+        return blogAccountEntity;
+    }
+
+    public void setBlogAccountEntity(BlogAccountEntity blogAccountEntity) {
+        this.blogAccountEntity = blogAccountEntity;
+    }
 }

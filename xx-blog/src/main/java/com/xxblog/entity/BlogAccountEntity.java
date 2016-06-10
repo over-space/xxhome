@@ -20,6 +20,9 @@ public class BlogAccountEntity extends BaseEntity {
     @Column(length = 64)
     private String password;
 
+    @Column(length = 64)
+    private String salt;
+
     @Email
     @Column(length = 64)
     public String email;

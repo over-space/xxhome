@@ -1,15 +1,21 @@
 package com.xxblog.services;
 
+import com.alibaba.fastjson.JSONObject;
 import com.xxbase.dao.BaseDao;
+import com.xxbase.method.XXPropertyPlaceholder;
 import com.xxbase.services.BaseServiceImpl;
+import com.xxbase.utils.XXStringUtils;
 import com.xxblog.dao.BlogCategoryDao;
 import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -29,17 +35,20 @@ public class BlogCategoryServiceImpl extends BaseServiceImpl<BlogCategoryEntity,
     }
 
 
+    @Override
+    @Cacheable(value = "blogCategoryListCache")
+    public List<BlogCategoryEntity> findAll() {
+        return super.findAll();
+    }
+
     /**
      * 初始化博客分类列表
      */
     @Override
     @Transactional
     public void initBlogCategory() {
-        String[] categoryNameArr = {"移动开发", "Web前端", "架构设计", "编程语言", "互联网", "数据库", "系统运维", "云计算", "研发管理", "综合"};
-        for(String name : categoryNameArr){
-            if(blogCategoryDao.findByName(name) != null) continue;
-            BlogCategoryEntity blogCategoryEntity = new BlogCategoryEntity(name);
-            blogCategoryDao.persist(blogCategoryEntity);
-        }
+        String jsonString = XXPropertyPlaceholder.getProperty("blog.category.list");
+        Collection<BlogCategoryEntity> blogCategoryEntityList = XXStringUtils.jsonStringToArrObject(jsonString, BlogCategoryEntity.class);
+        blogCategoryDao.persistAll(blogCategoryEntityList);
     }
 }

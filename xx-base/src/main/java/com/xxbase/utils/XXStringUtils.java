@@ -2,12 +2,18 @@ package com.xxbase.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.ss.formula.functions.T;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.CollectionUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * Created by admin on 16/05/21.
@@ -61,9 +67,39 @@ public class XXStringUtils {
         return JSON.parseObject(jsonString, clazz);
     }
 
+
     public static JSONObject getJsonObject(HttpServletRequest request) {
         String jsonString = getJsonBody(request);
         return JSON.parseObject(jsonString);
+    }
+
+    public static <T> T jsonStringToObject(String jsonString, Class<T> tClass){
+        if(isEmpty(jsonString)) return null;
+        return JSONObject.parseObject(jsonString, tClass);
+    }
+
+    public static <T> Collection<T> jsonStringToArrObject(String jsonString, Class<T> tClass){
+        if(isEmpty(jsonString)) return new ArrayList<>();
+        return JSONObject.parseArray(jsonString, tClass);
+    }
+
+
+    public static boolean isEmpty(Object object){
+
+        if(object == null) return true;
+
+        if (object.getClass().isArray()) {
+            Object[] arr = (Object[]) object;
+            return arr.length == 0;
+        }
+
+        if (object instanceof Map && CollectionUtils.isEmpty((Map<?, ?>) object)) return true;
+
+        if (object instanceof Collection && CollectionUtils.isEmpty((Collection<?>) object)) return true;
+
+        if (object instanceof String && StringUtils.isBlank(object.toString())) return true;
+
+        return false;
     }
 
 
