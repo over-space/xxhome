@@ -23,4 +23,9 @@
     <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
         <property name="connectionFactory" ref="jedisConnectionFactory" />
     </bean>
+
+    <bean id="redisCacheProvider" class="com.xxbase.cache.RedisCacheProvider">
+        <property name="redisTemplate" ref="redisTemplate"></property>
+    </bean>
+
 </beans>
