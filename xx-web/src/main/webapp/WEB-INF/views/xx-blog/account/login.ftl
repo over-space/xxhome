@@ -36,14 +36,14 @@
 
                         <div class="row">
                             <div class="col-sm-12 col-md-6 contact_left">
-                                <form class="form-horizontal" method="post" action="">
+                                <form class="form-horizontal" method="post" action="${path}/xxblog/account/login.xhtml">
 
                                     <div class="form-group has-success has-feedback">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-envelope"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="username" name="username" aria-describedby="inputGroupSuccess1Status" placeholder="请输入邮箱..." ng-model="account.email">
+                                            <input type="text" class="form-control" id="email" name="email" aria-describedby="inputGroupSuccess1Status" placeholder="请输入邮箱..." ng-model="account.email">
                                         </div>
                                     </div>
 
@@ -53,7 +53,7 @@
                                             <span class="input-group-addon">
                                                 <i class="glyphicon glyphicon-lock"></i>
                                             </span>
-                                            <input type="text" class="form-control" id="password" name="password" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password">
+                                            <input type="password" class="form-control" id="password" name="password" aria-describedby="inputGroupSuccess1Status" placeholder="请输入密码..." ng-model="account.password">
                                         </div>
                                     </div>
 
@@ -105,6 +105,7 @@
     </div> <!-- .container -->
 </div> <!-- .main-body -->
 
+<script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
 <script src="${xxblog_path}/js/bootstrap.min.js"></script>
 <script src="${xxbase_path}/js/angular.min.js"></script>
 

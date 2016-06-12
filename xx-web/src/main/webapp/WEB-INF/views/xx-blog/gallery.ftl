@@ -91,7 +91,7 @@
 </div>  <!-- .main-body -->
 
 
-<script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
+<script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
 <script src="${xxblog_path}/js/bootstrap.min.js"></script>
 <script src="${xxblog_path}/js/imagesloaded.3.1.8.min.js"></script>
 <script src="${xxblog_path}/js/jquery.masonry.3.2.1.min.js"></script> <!-- http://masonry.desandro.com/ -->

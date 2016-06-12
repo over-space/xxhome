@@ -86,7 +86,7 @@
     </div> <!-- .main-body -->
 
     <!-- JavaScript -->
-    <script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
+    <script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
     <script src="${xxblog_path}/js/bootstrap.min.js"></script>
     <script src="${xxbase_path}/js/angular.min.js"></script>
     <script src="${xxblog_path}/js/list-controller.js"></script>

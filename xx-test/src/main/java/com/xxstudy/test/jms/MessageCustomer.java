@@ -1,4 +1,4 @@
-package com.xxstudy.jms.chapter01;
+package com.xxstudy.test.jms;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -31,7 +31,7 @@ public class MessageCustomer {
         Destination destination = session.createQueue("message");
 
         //消息消费（接收）者
-        javax.jms.MessageConsumer consumer = session.createConsumer(destination);
+        MessageConsumer consumer = session.createConsumer(destination);
 
 
 
@@ -56,7 +56,7 @@ public class MessageCustomer {
     }
 
     public static void main(String[] args) throws Exception {
-        com.xxstudy.jms.chapter01.MessageCustomer consumer = new com.xxstudy.jms.chapter01.MessageCustomer();
+        com.xxstudy.test.jms.MessageCustomer consumer = new com.xxstudy.test.jms.MessageCustomer();
         consumer.init(consumer);
     }
 

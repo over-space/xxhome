@@ -34,5 +34,8 @@ public class BaseTest {
 
     }
 
+    public void line(){
+        logger.info("---------------------------------------------------------");
+    }
 
 }

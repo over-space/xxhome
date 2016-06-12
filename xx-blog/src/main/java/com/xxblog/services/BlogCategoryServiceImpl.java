@@ -1,20 +1,16 @@
 package com.xxblog.services;
 
-import com.alibaba.fastjson.JSONObject;
 import com.xxbase.dao.BaseDao;
 import com.xxbase.method.XXPropertyPlaceholder;
 import com.xxbase.services.BaseServiceImpl;
-import com.xxbase.utils.XXStringUtils;
+import com.xxbase.utils.XXSystemUtils;
 import com.xxblog.dao.BlogCategoryDao;
 import com.xxblog.entity.BlogCategoryEntity;
-import com.xxblog.services.BlogCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -48,7 +44,7 @@ public class BlogCategoryServiceImpl extends BaseServiceImpl<BlogCategoryEntity,
     @Transactional
     public void initBlogCategory() {
         String jsonString = XXPropertyPlaceholder.getProperty("blog.category.list");
-        Collection<BlogCategoryEntity> blogCategoryEntityList = XXStringUtils.jsonStringToArrObject(jsonString, BlogCategoryEntity.class);
+        Collection<BlogCategoryEntity> blogCategoryEntityList = XXSystemUtils.jsonStringToArrObject(jsonString, BlogCategoryEntity.class);
         blogCategoryDao.persistAll(blogCategoryEntityList);
     }
 }

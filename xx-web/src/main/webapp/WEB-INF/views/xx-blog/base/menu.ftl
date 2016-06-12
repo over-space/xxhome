@@ -105,7 +105,7 @@
         </div> <!-- main-menu -->
 
 
-        <#--<script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>-->
+        <#--<script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>-->
         <#--<script src="${xxbase_path}/js/layer/layer.js"></script>-->
 
         <#--<script language="JavaScript">-->

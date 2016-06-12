@@ -2,7 +2,6 @@ package com.xxblog.test;
 
 import com.xxbase.test.SpringBaseTest;
 import com.xxblog.services.BlogAccountService;
-import com.xxblog.services.BlogGroupService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;

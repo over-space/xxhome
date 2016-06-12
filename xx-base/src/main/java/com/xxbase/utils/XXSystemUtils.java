@@ -3,7 +3,7 @@ package com.xxbase.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.formula.functions.T;
+import org.apache.shiro.io.ResourceUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -18,10 +18,10 @@ import java.util.Map;
 /**
  * Created by admin on 16/05/21.
  */
-public class XXStringUtils {
+public class XXSystemUtils {
 
     private static final String REQUEST_BODY = "REQUEST_BODY";
-    private static Logger logger = LoggerFactory.getLogger(XXStringUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(XXSystemUtils.class);
 
 
     /**
@@ -83,7 +83,6 @@ public class XXStringUtils {
         return JSONObject.parseArray(jsonString, tClass);
     }
 
-
     public static boolean isEmpty(Object object){
 
         if(object == null) return true;
@@ -102,6 +101,13 @@ public class XXStringUtils {
         return false;
     }
 
+    public static String getClasspath(){
+        return XXSystemUtils.class.getClassLoader().getResource("").getPath();
+    }
+
+    public static String getClasspath(String fileName){
+        return getClasspath() + fileName;
+    }
 
     /**
      * 过滤掉超过3个字节的UTF8字符
@@ -125,7 +131,6 @@ public class XXStringUtils {
                     buffer.put(bytes[i++]);
                     continue;
                 }
-
 
                 b += 256; // 去掉符号位
 
@@ -153,6 +158,7 @@ public class XXStringUtils {
         }
     }
 
+
     private static boolean hasOffUtf8Mb4(byte[] bytes) {
         int i = 0;
         while (i < bytes.length) {
@@ -161,7 +167,6 @@ public class XXStringUtils {
                 i++;
                 continue;
             }
-
 
             b += 256; // 去掉符号位
 

@@ -199,7 +199,7 @@
     </div>
 </div>
 
-<script src="${xxblog_path}/js/jquery-1.11.3.min.js"></script>
+<script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
 <script src="${xxblog_path}/js/bootstrap.min.js"></script>
 
 </body>

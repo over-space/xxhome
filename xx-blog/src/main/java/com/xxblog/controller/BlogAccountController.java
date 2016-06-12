@@ -5,16 +5,18 @@ import com.xxbase.controller.BaseController;
 import com.xxbase.params.XXResponseBody;
 import com.xxbase.services.CaptchaService;
 import com.xxbase.utils.CipherUtils;
-import com.xxbase.utils.XXStringUtils;
+import com.xxbase.utils.XXSystemUtils;
 import com.xxblog.entity.BlogAccountEntity;
 import com.xxblog.services.BlogAccountService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,10 +32,38 @@ public class BlogAccountController extends BaseController {
     @Autowired
     private CaptchaService captchaService;
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ModelAndView login(HttpServletRequest request, ModelMap map){
+
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String captcha = request.getParameter("captcha");
+
+        if(!(XXSystemUtils.isEmpty(email) || XXSystemUtils.isEmpty(password) || XXSystemUtils.isEmpty(captcha))){
+
+
+                boolean isCaptchaValid = captchaService.isValid(request.getSession().getId(), captcha);
+                if (!isCaptchaValid) {
+                    if (logger.isDebugEnabled()) logger.debug("验证码错误!");
+                }
+
+
+                BlogAccountEntity blogAccountEntity = blogAccountService.findByEmail(email);
+
+                if (blogAccountEntity == null) {
+                    if (logger.isDebugEnabled()) logger.debug("用户名或密码错误, email={}, passoword={}!", email, password);
+                }
+
+        }
+
+        return new ModelAndView("redirect:/xxblog/view/login.xhtml", map);
+    }
+
+
     @ResponseBody
     @RequestMapping(value = "/sign", method = RequestMethod.POST)
     public XXResponseBody sign(HttpServletRequest request) {
-        JSONObject param = XXStringUtils.getJsonObject(request);
+        JSONObject param = XXSystemUtils.getJsonObject(request);
 
         if (param == null) {
             return new XXResponseBody(XXResponseBody.CODE_PARAM_ERROR, XXResponseBody.MESSAGE_PARAM_ERROR);
