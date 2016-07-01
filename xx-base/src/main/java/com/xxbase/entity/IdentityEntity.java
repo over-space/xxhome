@@ -1,6 +1,4 @@
-package com.xxplus.entity;
-
-import com.xxbase.entity.BaseEntity;
+package com.xxbase.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +8,7 @@ import javax.persistence.Table;
  * Created by lifang on 2015/2/1.
  */
 @Entity
-@Table(name = "t_sys_identity")
+@Table(name = "t_identity")
 public class IdentityEntity extends BaseEntity {
 
     /**

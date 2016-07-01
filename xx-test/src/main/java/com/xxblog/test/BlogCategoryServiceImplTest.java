@@ -1,5 +1,8 @@
 package com.xxblog.test;
 
+import com.xxbase.common.Order;
+import com.xxbase.common.Page;
+import com.xxbase.common.Pageable;
 import com.xxbase.test.SpringBaseTest;
 import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogCategoryService;
@@ -43,6 +46,19 @@ public class BlogCategoryServiceImplTest extends SpringBaseTest {
     public void testFindById() {
         blogCategoryService.findById(1L);
         blogCategoryService.findById(1L);
+    }
+
+    @Test
+    public void testFindPage(){
+        Pageable pageable = new Pageable();
+        pageable.setPageSize(2);
+        pageable.setOrder("id", Order.Direction.desc);
+        Page<BlogCategoryEntity> blogCategoryEntityPage = blogCategoryService.findPage(pageable);
+        logger.info("count : {}", blogCategoryEntityPage.getContent().size());
+        logger.info("total : {}", blogCategoryEntityPage.getTotal());
+        for(BlogCategoryEntity blogCategoryEntity : blogCategoryEntityPage.getContent()){
+            logger.info("id={}, name={}", blogCategoryEntity.getId(), blogCategoryEntity.getName());
+        }
     }
 }
 

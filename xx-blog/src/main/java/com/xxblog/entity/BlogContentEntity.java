@@ -2,6 +2,7 @@ package com.xxblog.entity;
 
 import com.xxbase.entity.BaseEntity;
 import org.hibernate.annotations.Fetch;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.util.StringUtils;
 
@@ -14,13 +15,26 @@ import javax.persistence.*;
 @Table(name = "t_blog_content")
 public class BlogContentEntity extends BaseEntity {
 
+    public enum Status{DEL, PUBLIC, DRAFT}
+
     @Column(length = 64)
+    @NotBlank(message = "博客名称不允许为空")
     private String name;
 
+    //博客内容
     @Lob
     @Lazy
     private String content;
 
+    //内容简介
+    @Column(length = 300)
+    private String abstracts;
+
+    //状态
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.DRAFT;
+
+    //博客标签
     @Column(length = 200)
     private String tags;
 
@@ -35,15 +49,11 @@ public class BlogContentEntity extends BaseEntity {
 
     //前一篇帖子
     @Column(length = 64)
-    private String preTopic;
+    private String lastContent;
 
     //后一篇帖子
     @Column(length = 64)
-    private String postTopic;
-
-
-    @Transient
-    public String summary;
+    private String nextContent;
 
     public String getName() {
         return name;
@@ -93,23 +103,36 @@ public class BlogContentEntity extends BaseEntity {
         this.collect = collect;
     }
 
-    public String getPreTopic() {
-        return preTopic;
+
+    public Status getStatus() {
+        return status;
     }
 
-    public void setPreTopic(String preTopic) {
-        this.preTopic = preTopic;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public String getPostTopic() {
-        return postTopic;
+    public String getLastContent() {
+        return lastContent;
     }
 
-    public void setPostTopic(String postTopic) {
-        this.postTopic = postTopic;
+    public void setLastContent(String lastContent) {
+        this.lastContent = lastContent;
     }
 
-    public String getSummary() {
-        return org.apache.commons.lang3.StringUtils.substring(this.content, 0, 270);
+    public String getNextContent() {
+        return nextContent;
+    }
+
+    public void setNextContent(String nextContent) {
+        this.nextContent = nextContent;
+    }
+
+    public String getAbstracts() {
+        return abstracts;
+    }
+
+    public void setAbstracts(String abstracts) {
+        this.abstracts = abstracts;
     }
 }

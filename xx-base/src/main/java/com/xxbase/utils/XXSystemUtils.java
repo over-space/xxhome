@@ -18,9 +18,10 @@ import java.util.Map;
 /**
  * Created by admin on 16/05/21.
  */
-public class XXSystemUtils {
+public final class XXSystemUtils {
 
     private static final String REQUEST_BODY = "REQUEST_BODY";
+
     private static Logger logger = LoggerFactory.getLogger(XXSystemUtils.class);
 
 
@@ -62,27 +63,60 @@ public class XXSystemUtils {
     }
 
 
+    /**
+     * 将request参数转换成具体的对象
+     * @param request
+     * @param clazz 对象类型
+     * @param <T> 对象泛型
+     * @return 具体对象
+     */
     public static <T> T getJsonBody2Object(HttpServletRequest request, Class<T> clazz) {
         String jsonString = getJsonBody(request);
         return JSON.parseObject(jsonString, clazz);
     }
 
 
+    /**
+     * 将request参数转换成JSONObject
+     * @param request
+     * @return JSONObject
+     */
     public static JSONObject getJsonObject(HttpServletRequest request) {
         String jsonString = getJsonBody(request);
         return JSON.parseObject(jsonString);
     }
 
-    public static <T> T jsonStringToObject(String jsonString, Class<T> tClass){
+    /**
+     * 将jsonString转换成具体对象
+     * @param jsonString
+     * @param clazz 对象类型
+     * @param <T> 对象泛型
+     * @return 具体对象
+     */
+    public static <T> T jsonStringToObject(String jsonString, Class<T> clazz){
         if(isEmpty(jsonString)) return null;
-        return JSONObject.parseObject(jsonString, tClass);
+        return JSONObject.parseObject(jsonString, clazz);
     }
 
-    public static <T> Collection<T> jsonStringToArrObject(String jsonString, Class<T> tClass){
+
+    /**
+     * 将jsonString转换成集合
+     * @param jsonString
+     * @param clazz 对象类型
+     * @param <T> 对象泛型
+     * @return 具体对象
+     */
+    public static <T> Collection<T> jsonStringToArrObject(String jsonString, Class<T> clazz){
         if(isEmpty(jsonString)) return new ArrayList<>();
-        return JSONObject.parseArray(jsonString, tClass);
+        return JSONObject.parseArray(jsonString, clazz);
     }
 
+
+    /**
+     * 判断对象是否为空
+     * @param object
+     * @return
+     */
     public static boolean isEmpty(Object object){
 
         if(object == null) return true;
@@ -101,13 +135,35 @@ public class XXSystemUtils {
         return false;
     }
 
+
+    /**
+     * 获取claspath根路径
+     * @return
+     */
     public static String getClasspath(){
         return XXSystemUtils.class.getClassLoader().getResource("").getPath();
     }
 
+    /**
+     * 获取claspath根路径
+     * @return
+     */
     public static String getClasspath(String fileName){
         return getClasspath() + fileName;
     }
+
+
+    /**
+     * 将byte转换为M
+     * @param bytes
+     * @return
+     */
+    public static long bytesToM(long bytes){
+        long kb = bytes / 1024;
+        long m = kb / 1024;
+        return m;
+    }
+
 
     /**
      * 过滤掉超过3个字节的UTF8字符

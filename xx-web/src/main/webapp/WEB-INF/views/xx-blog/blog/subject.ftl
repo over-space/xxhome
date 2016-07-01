@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="main-body">
+    <div class="main-body" ng-app="subjectViewApp" ng-controller="subject-controller">
         <div class="container">
             <div class="row">
                 <div class="main-page">
@@ -31,66 +31,15 @@
                                 <div class="banner-main-home">
                                     <div class="banner-main-home-text subject-title">
                                         <div class="heading">
-                                            <h3>SpringMVC干货系列：从零搭建SpringMVC+mybatis</h3>
+                                            <h3>{{blog.name}}</h3>
                                             <p class="text-lowercase">
                                                 阅读:472&nbsp;&nbsp;评论:7&nbsp;&nbsp;喜欢:19
                                             </p>
                                         </div>
 
                                         <div class="desc">
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
-                                            <p>This is free Bootstrap v3.3.6 website theme brought to you by templatemo.
-                                                Feel free to use it. Please tell your friends about it. Images are provided
-                                                by <a rel="nofollow" href="http://unsplash.com"
-                                                      target="_parent">Unsplash</a> (free photo website). Icons are from
-                                                Smashing Magazine.</p>
+                                            {{blog.content}}
                                         </div>
-
-
 
                                         <div class="desc-footer">
                                             <hr/>
@@ -113,10 +62,11 @@
     </div> <!-- .container -->
     </div> <!-- .main-body -->
 
-<!-- JavaScript -->
+    <!-- JavaScript -->
     <script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
     <script src="${xxblog_path}/js/bootstrap.min.js"></script>
     <script src="${xxbase_path}/js/angular.min.js"></script>
     <script type="application/javascript" src="${xxblog_path}/js/layui/layui.js"></script>
+    <script src="${xxblog_path}/js/subject-controller.js"></script>
     </body>
 </html>

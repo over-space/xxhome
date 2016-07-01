@@ -1,4 +1,4 @@
-package com.xxbase.params;
+package com.xxbase.common;
 
 /**
  * Created by admin on 16/05/19.

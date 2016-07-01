@@ -1,6 +1,8 @@
 package com.xxbase.dao;
 
 
+import com.xxbase.common.Page;
+import com.xxbase.common.Pageable;
 import com.xxbase.exception.ServiceException;
 
 import java.io.Serializable;
@@ -20,6 +22,8 @@ public abstract interface BaseDao<T, ID extends Serializable> {
     public abstract T findByName(String name) throws ServiceException;
 
     public abstract List<T> findAll();
+
+    public abstract Page<T> findPage(Pageable pageable);
 
     public abstract void persist(T t);
 

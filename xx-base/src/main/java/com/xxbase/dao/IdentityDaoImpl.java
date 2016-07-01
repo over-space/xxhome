@@ -1,10 +1,8 @@
-package com.xxplus.dao;
+package com.xxbase.dao;
 
 import com.mysema.query.jpa.impl.JPAQuery;
 import com.mysema.query.types.path.PathBuilder;
-import com.xxbase.dao.BaseDaoImpl;
-import com.xxplus.dao.IdentityDao;
-import com.xxplus.entity.IdentityEntity;
+import com.xxbase.entity.IdentityEntity;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -15,7 +13,7 @@ public class IdentityDaoImpl extends BaseDaoImpl<IdentityEntity, Long> implement
 
     @Override
     public IdentityEntity findByClazz(String clazz) {
-        PathBuilder<IdentityEntity> pb = new PathBuilder<IdentityEntity>(IdentityEntity.class, "o");
+        PathBuilder<IdentityEntity> pb = new PathBuilder<>(IdentityEntity.class, "o");
         JPAQuery query = new JPAQuery(entityManager);
         return query.from(pb).where(pb.getString("clazz").eq(clazz)).singleResult(pb);
     }

@@ -1,6 +1,6 @@
 package com.xxbase.controller;
 
-import com.xxbase.params.XXResponseBody;
+import com.xxbase.common.XXResponseBody;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

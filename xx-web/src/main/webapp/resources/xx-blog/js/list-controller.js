@@ -4,6 +4,7 @@ var listViewApp = angular.module('listViewApp', []);
 listViewApp.controller('list-controller', function ($scope, $http) {
 
     $scope.blogContentList = [];
+    
 
     //初始化页面
     var initView = function () {

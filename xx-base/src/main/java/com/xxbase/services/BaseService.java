@@ -1,6 +1,9 @@
 package com.xxbase.services;
 
 
+import com.xxbase.common.Page;
+import com.xxbase.common.Pageable;
+
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -10,24 +13,26 @@ import java.util.List;
  */
 public abstract interface BaseService<T, ID extends Serializable> {
 
-    public abstract T findById(ID id);
+    T findById(ID id);
 
-    public abstract T findByName(String name);
+    T findByName(String name);
 
-    public abstract List<T> findAll();
+    List<T> findAll();
 
-    public abstract void persist(T t);
+    Page<T> findPage(Pageable pageable);
 
-    public abstract void persist(Collection<T> t);
+    void persist(T t);
 
-    public abstract T merge(T t);
+    void persist(Collection<T> t);
 
-    public abstract void remove(T t);
+    T merge(T t);
 
-    public abstract void remove(ID id);
+    void remove(T t);
 
-    public abstract void clear();
+    void remove(ID id);
 
-    public abstract List<T> findAllByName(String name);
+    void clear();
+
+    List<T> findAllByName(String name);
 
 }

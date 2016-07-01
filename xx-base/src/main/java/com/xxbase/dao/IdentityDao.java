@@ -1,8 +1,7 @@
-package com.xxplus.dao;
+package com.xxbase.dao;
 
 
-import com.xxbase.dao.BaseDao;
-import com.xxplus.entity.IdentityEntity;
+import com.xxbase.entity.IdentityEntity;
 
 /**
  * Created by lifang on 2015/2/1.

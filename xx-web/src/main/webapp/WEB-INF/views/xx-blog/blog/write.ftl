@@ -8,7 +8,7 @@
         <link rel='stylesheet' type='text/css' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,400italic'>
         <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="${xxblog_path}/fonts/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="${xxbase_path}/css/bootstrap/bootstrap-markdown.min.css">
+        <link rel="stylesheet" type="text/css" href="${xxbase_path}/css/bootstrap/bootstrap-markdown.min.css" media="screen">
         <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/style.css">
         <link rel="stylesheet" type="text/css" href="${xxblog_path}/css/blog/write.css">
         <link rel="shortcut icon" href="${xxbase_path}/icon/favicon.ico"/>
@@ -83,7 +83,7 @@
                                                     <#--<a href="#"><i class="fa fa-caret-right"></i><span>READ MORE</span></a>-->
                                                    <input id="btn-submit" name="btn-submit" og-click="doPublic()" type="submit" value="发表文章" class="btn view_more btn-submit">
                                                    <input id="btn-save" name="btn-save" ng-click="doSave()" type="submit" value="立即保存" class="btn view_more btn-submit">
-                                                   <input id="btn-give-up" name="btn-give-up" ng-click="doGiveUp" type="submit" value="舍弃" class="btn view_more btn-submit">
+                                                   <input id="btn-give-up" name="btn-give-up" ng-click="doGiveUp()" type="submit" value="舍弃" class="btn view_more btn-submit">
                                                 </div>
                                             </div>
                                         </div>
@@ -103,13 +103,31 @@
         <script src="${xxbase_path}/js/jquery-1.11.3.min.js"></script>
         <script src="${xxblog_path}/js/bootstrap.min.js"></script>
         <script src="${xxbase_path}/js/bootstrap/bootstrap-markdown.js"></script>
+        <script src="${xxbase_path}/js/bootstrap/marked.js"></script>
+        <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/markdown.js"></script>
+        <script type="text/javascript" src="http://cdn.alifav.com/bootstrapmarkdown/to-markdown.js"></script>
+        <script src="${xxbase_path}/js/layer/layer.js"></script>
         <script src="${xxbase_path}/js/angular.min.js"></script>
         <script type="application/javascript" src="${xxblog_path}/js/write-controller.js"></script>
 
         <script language="javascript">
             $("#blog-textarea").markdown({
-                    autofocus:true,
-                    savable:false
+                language:'zh',
+                autofocus:true,
+                savable:false,
+                onPreview: function (content, callback) {
+                    callback(marked(content));
+                }
+
+//                onPreview: function(e) {
+//                    var previewContent;
+//                    if (e.isDirty()) {
+//                        previewContent = e.parseContent();
+//                    } else {
+//                        previewContent = "Default content"
+//                    }
+//                    return previewContent;
+//                },
             });
         </script>
     </body>

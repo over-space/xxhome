@@ -1,16 +1,15 @@
-package com.xxplus.services;
+package com.xxbase.services;
 
 import com.xxbase.dao.BaseDao;
-import com.xxbase.services.BaseServiceImpl;
-import com.xxplus.dao.IdentityDao;
-import com.xxplus.entity.IdentityEntity;
-import com.xxplus.services.IdentityService;
+import com.xxbase.dao.IdentityDao;
+import com.xxbase.entity.IdentityEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 /**
  * Created by lifang on 2015/2/1.
@@ -20,6 +19,10 @@ public class IdentityServiceImpl extends BaseServiceImpl<IdentityEntity, Long> i
 
     @Autowired
     private IdentityDao identityDao;
+
+    private static Object lock = new Object();
+
+    private static Semaphore semaphore = new Semaphore(1);
 
     @Override
     @Autowired
@@ -38,22 +41,29 @@ public class IdentityServiceImpl extends BaseServiceImpl<IdentityEntity, Long> i
 
     @Override
     @Transactional
-    public String getIdentity(Class clazz) {
+    public synchronized String getIdentity(Class clazz) {
+//        try {
+//            semaphore.acquire();
+//        } catch (InterruptedException e) {
+//            logger.error(e.getMessage(), e);
+//        }
         IdentityEntity identityEntity = findByClazz(clazz.getName());
+
+        StringBuffer sb = new StringBuffer(10);
         if (identityEntity != null) {
             String prefix = identityEntity.getPrefix();
             Long suffix = identityEntity.getSuffix() + identityEntity.getStep();
             identityEntity.setSuffix(suffix);
-            return new StringBuffer(prefix).append(suffix).toString();
+            semaphore.release();
+            sb.append(prefix).append(suffix).toString();
         } else {
-            Random random = new Random();
-            int step = 0;
-            do {
-                step = random.nextInt(10);
-            } while (step <= 0);
-            identityEntity = new IdentityEntity(clazz.getName().substring(0, 2).toUpperCase(), 10000L, step, clazz.getName());
+            int step = 1;
+            identityEntity = new IdentityEntity(clazz.getSimpleName().substring(0, 2).toUpperCase(), 10000L, step, clazz.getName());
             persist(identityEntity);
-            return new StringBuffer(identityEntity.getPrefix()).append(identityEntity.getSuffix()).toString();
+            sb.append(identityEntity.getPrefix()).append(identityEntity.getSuffix()).toString();
         }
+
+//        semaphore.release();
+        return sb.toString();
     }
 }

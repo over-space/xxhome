@@ -56,7 +56,7 @@
         <spring.version>4.2.6.RELEASE</spring.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <querydsl.version>3.7.2</querydsl.version>
-        <lucene.version>6.0.1</lucene.version>
+        <lucene.version>4.10.4</lucene.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -64,11 +64,30 @@
 
         <dependency>
             <groupId>org.wltea</groupId>
-            <artifactId>IKAnalyzer</artifactId>
-            <version>3.2.8</version>
-            <type>jar</type>
-            <scope>system</scope>
-            <systemPath>${basedir}/xx-web/src/main/webapp/lib/IKAnalyzer3.2.8.jar</systemPath>
+            <artifactId>ik-analyzer-2012</artifactId>
+            <version>2012</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.chenlb.mmseg4j</groupId>
+            <artifactId>mmseg4j-core</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.chenlb.mmseg4j</groupId>
+            <artifactId>mmseg4j-analysis</artifactId>
+            <version>1.9.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-queryparser</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -216,6 +235,11 @@
             <version>1.9.13</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.3</version>
+        </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -334,26 +358,33 @@
             <version>${lucene.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.5.2-1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
+
         <plugins>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.5.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <encoding>utf-8</encoding>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
+                <version>3.0.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -375,9 +406,7 @@
                         </systemProperty>
                     </systemProperties>
                     <useTestClasspath>true</useTestClasspath>
-                    <classesDirectory>xx-web/target/classes/, xx-base/target/classes/, xx-plus/target/classes/,
-                        xx-blog/target/classes/
-                    </classesDirectory>
+                    <classesDirectory>xx-web/target/classes/, xx-base/target/classes/, xx-plus/target/classes/,xx-blog/target/classes/</classesDirectory>
                     <webAppSourceDirectory>xx-web/src/main/webapp</webAppSourceDirectory>
                     <testClassesDirectory>xx-web/src/test/resources</testClassesDirectory>
                     <webAppConfig>

@@ -1,5 +1,7 @@
 package com.xxbase.services;
 
+import com.xxbase.common.Page;
+import com.xxbase.common.Pageable;
 import com.xxbase.dao.BaseDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,6 +52,12 @@ public class BaseServiceImpl<T, ID extends Serializable> implements BaseService<
     @Transactional(readOnly = true)
     public List<T> findAll() {
         return baseDao.findAll();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<T> findPage(Pageable pageable) {
+        return baseDao.findPage(pageable);
     }
 
     @Override

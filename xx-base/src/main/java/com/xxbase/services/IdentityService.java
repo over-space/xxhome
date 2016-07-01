@@ -1,8 +1,7 @@
-package com.xxplus.services;
+package com.xxbase.services;
 
 
-import com.xxbase.services.BaseService;
-import com.xxplus.entity.IdentityEntity;
+import com.xxbase.entity.IdentityEntity;
 
 /**
  * Created by lifang on 2015/2/1.

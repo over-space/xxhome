@@ -2,7 +2,7 @@ package com.xxblog.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xxbase.controller.BaseController;
-import com.xxbase.params.XXResponseBody;
+import com.xxbase.common.XXResponseBody;
 import com.xxbase.services.CaptchaService;
 import com.xxbase.utils.CipherUtils;
 import com.xxbase.utils.XXSystemUtils;

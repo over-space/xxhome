@@ -46,6 +46,7 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    
     <listener>
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
@@ -53,6 +54,10 @@
     <!--日志相关-->
     <listener>
         <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+    
+    <listener>
+        <listener-class>com.xxbase.listerer.ApplicationContextListener</listener-class>
     </listener>
 
     <context-param>

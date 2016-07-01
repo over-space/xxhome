@@ -1,6 +1,6 @@
 package com.xxblog.controller;
 
-import com.xxbase.params.XXResponseBody;
+import com.xxbase.common.XXResponseBody;
 import com.xxblog.entity.BlogCategoryEntity;
 import com.xxblog.services.BlogCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

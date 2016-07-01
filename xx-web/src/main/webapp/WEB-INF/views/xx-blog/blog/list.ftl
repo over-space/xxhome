@@ -36,11 +36,11 @@
 
                                     <div class="info float-container" ng-repeat="blog in blogContentList">
                                         <div class="col-sm-12 bottom-title">
-                                            <h3 class="text-area">[互联网]&nbsp;{{blog.name}}</h3>
+                                            <h3 class="text-area">[互联网]&nbsp;<a href="subject.xhtml?id={{blog.id}}">{{blog.name}}</a></h3>
                                             <div class="blog-desc">
                                                 <img src="${xxbase_path}/images/photo.png" class="photo" style="width: 56px;">
                                                 <span class="blog-content">
-                                                    {{blog.summary}}
+                                                    {{blog.abstracts}}
                                                 </span>
                                             </div>
                                             <div class="col-sm-12 location-main">
